@@ -20,6 +20,7 @@
 
 // typedefs
 typedef float Weight;
+typedef int   NumCats;
 
 // enums
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
@@ -40,5 +41,5 @@ struct Cat {
 
 // Global Variables
 extern struct Cat cats[MAX_CATS];
-extern int        totalCats;
+extern NumCats    totalCats;
 

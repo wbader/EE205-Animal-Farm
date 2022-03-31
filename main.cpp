@@ -30,8 +30,7 @@
 #include "validateData.h"
 
 struct Cat  cats[MAX_CATS];
-
-int         totalCats;
+NumCats     totalCats;
 
 //  int argc, char* argv[] // if i need command line add this to main()
 int main()
