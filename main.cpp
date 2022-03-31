@@ -29,7 +29,7 @@
 #include "config.h"
 #include "validateData.h"
 
-struct Cat  cats[MAX_CATS];
+struct CatStruct  cats[MAX_CATS];
 NumCats     totalCats;
 
 //  int argc, char* argv[] // if i need command line add this to main()

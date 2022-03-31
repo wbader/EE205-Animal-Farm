@@ -17,6 +17,7 @@
 #define MAX_CAT_NAME_LENGTH (50)
 #define MAX_CATS (1024)
 #define PROGRAM_NAME "Animal Farm 1"
+#define UNKNOWN_WEIGHT (-1)
 
 // typedefs
 typedef float Weight;
@@ -25,10 +26,10 @@ typedef int   NumCats;
 // enums
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 enum Breed  {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-enum Color  {BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
+enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
 
 // structs
-struct Cat {
+struct CatStruct {
     char               name[MAX_CAT_NAME_LENGTH];
     enum Gender        gender;
     enum Breed         breed;
@@ -40,6 +41,6 @@ struct Cat {
 };
 
 // Global Variables
-extern struct Cat cats[MAX_CATS];
+extern struct CatStruct cats[MAX_CATS];
 extern NumCats    totalCats;
 
