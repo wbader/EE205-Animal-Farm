@@ -16,4 +16,4 @@
 
 #include "config.h"
 
-extern int addCat(const char catName[], const enum Gender catGender, const enum Breed catBreed, const bool catIsFixed, const float catWeight, const enum Color catCollar1, const enum Color catCollar2, const unsigned long long catLiscense);
+extern int addCat(const char catName[], const enum Gender catGender, const enum Breed catBreed, const bool catIsFixed, const Weight catWeight, const enum Color catCollar1, const enum Color catCollar2, const unsigned long long catLiscense);

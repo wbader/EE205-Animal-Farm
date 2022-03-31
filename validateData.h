@@ -19,7 +19,7 @@ extern bool checkCatNameForValidLength(const char newName[]);
 
 extern bool checkIndexForValidValue(const int index);
 
-extern bool checkWeightForValidWeight(const float newWeight);
+extern bool checkWeightForValidWeight(const Weight newWeight);
 
 extern unsigned long long getNewLiscenseNumber();
 

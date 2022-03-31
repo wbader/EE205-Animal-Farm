@@ -60,7 +60,7 @@ int fixCat(const int index)
     return 0;
 }
 
-int updateCatWeight(const int index, const float newWeight)
+int updateCatWeight(const int index, const Weight newWeight)
 {
     if(checkWeightForValidWeight(newWeight) == false)
     {

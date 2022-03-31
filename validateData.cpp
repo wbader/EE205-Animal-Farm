@@ -42,7 +42,7 @@ bool checkIndexForValidValue(const int index)
         return true;
 }
 
-bool checkWeightForValidWeight(const float newWeight)
+bool checkWeightForValidWeight(const Weight newWeight)
 {
     if(newWeight <= 0.0)
         return false;
