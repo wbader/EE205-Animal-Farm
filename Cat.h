@@ -15,7 +15,7 @@
 class Cat {
 public:
     Cat*                       next;
-/*    Cat();
+    Cat();
     Cat(char*                  name,
         Gender                 newGender,
         Breed                  newBreed,
@@ -27,7 +27,7 @@ public:
     ~Cat();
 
     bool print() const noexcept;
-    bool validate();
+    bool validate() const;
 private:
     char               name[MAX_CAT_NAME_LENGTH];
 public:
@@ -37,7 +37,7 @@ public:
 
     Breed getBreed() const;
 
-    bool isCatFixed1() const;
+    bool isFixed() const;
 
     Weight getWeight() const;
 
@@ -55,6 +55,6 @@ private:
     enum Color         collarColor1;
     enum Color         collarColor2;
     unsigned long long liscense;
-*/
+
 };
 

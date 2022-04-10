@@ -9,12 +9,14 @@
 /// @date   31_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
+#include "validateData.h"
+
 #include <cstring>
 #include <iostream>
 #include <iomanip>
+#include <cassert>
 
 using namespace std;
-/*
 
 Cat::Cat(char *newName,
          Gender newGender,
@@ -60,7 +62,7 @@ Cat::~Cat() {
 }
 
 // @todo fix validate(), currently just returns true to make the code work
-bool Cat::validate() {
+bool Cat::validate() const {
     return true;
 }
 
@@ -76,7 +78,7 @@ Breed Cat::getBreed() const {
     return breed;
 }
 
-bool Cat::isCatFixed1() const {
+bool Cat::isFixed() const {
     return isCatFixed;
 }
 
@@ -103,7 +105,7 @@ unsigned long long int Cat::getLiscense() const {
 /// @returns true if everything worked correctly. false if something goes
 /// wrong
 bool Cat::print() const noexcept {
-    assert(validate());
+    assert(Cat::validate());
     cout << setw(80) << setfill('=') << "" << endl;
     cout << setfill(' ');
     cout << left;
@@ -115,5 +117,3 @@ bool Cat::print() const noexcept {
     FORMAT_LINE("Cat", "weight") << getWeight() << endl;
     return true;
 }
-
-*/

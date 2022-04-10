@@ -12,10 +12,16 @@
 /// This is just a test bed for the Cat class, not production code
 
 #include "Cat.h"
+#include "config.h"
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
+    cout << "Main2 - Starting " << PROGRAM_NAME << endl;
 
 
 
+    cout << "Main2 - Done with " << PROGRAM_NAME << endl;
 }

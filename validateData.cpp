@@ -12,6 +12,8 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdio.h>
+#include <iostream>
+#include <string>
 
 #include "validateData.h"
 #include "reportCats.h"
@@ -57,7 +59,8 @@ unsigned long long getNewLiscenseNumber()
     return latestLiscense++;
 }
 
-char* colorName(const enum Color color)
+*/
+std::string colorName(const enum Color color)
 {
     //BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE
 
@@ -101,7 +104,7 @@ char* colorName(const enum Color color)
     return "ERROR!";
 }
 
-char* breedName(const enum Breed breed)
+std::string breedName(const enum Breed breed)
 {
     // UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX
     switch(breed)
@@ -126,7 +129,7 @@ char* breedName(const enum Breed breed)
     return "ERROR!";
 }
 
-char* genderName(const enum Gender gender)
+std::string genderName(const enum Gender gender)
 {
     // UNKNOWN_GENDER, MALE, FEMALE
     switch(gender)
@@ -144,4 +147,3 @@ char* genderName(const enum Gender gender)
     fprintf(stderr, "%s: passed through switch in genderName()\n", PROGRAM_NAME);
     return "ERROR!";
 }
-*/

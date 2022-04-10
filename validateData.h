@@ -12,6 +12,7 @@
 #pragma once
 
 #include <stdbool.h>
+#include <string>
 #include "config.h"
 
 extern bool checkCatNameForDuplicates(const char newName[]);
@@ -23,6 +24,6 @@ extern bool checkWeightForValidWeight(const Weight newWeight);
 
 extern unsigned long long getNewLiscenseNumber();
 
-extern char* colorName(const enum Color color);
-extern char* breedName(const enum Breed breed);
-extern char* genderName(const enum Gender gender);
+extern std::string colorName(const enum Color color);
+extern std::string breedName(const enum Breed breed);
+extern std::string genderName(const enum Gender gender);
