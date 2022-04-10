@@ -32,7 +32,7 @@ Cat::Cat(const char *newName,
     setWeight(newWeight);
     if(!(validate()))
     {
-        cout << "Cat::Cat(name, gender, breed, isFixed, weight) failed validation" << endl;
+        cerr << "Cat::Cat(name, gender, breed, isFixed, weight) failed validation" << endl;
     }
 }
 
@@ -48,7 +48,7 @@ Cat::Cat(const char *newName,
     setWeight(newWeight);
     if(!(validate()))
     {
-        cout << "Cat::Cat(name, gender, breed, weight) failed validation" << endl;
+        cerr << "Cat::Cat(name, gender, breed, weight) failed validation" << endl;
     }
 }
 
@@ -76,7 +76,7 @@ bool Cat::validate() const {
         return false;
     if(strlen(Cat::name) == 0 || strlen(Cat::name) > MAX_CAT_NAME_LENGTH)
         return false;
-    if(Cat::weight != UNKNOWN_WEIGHT && Cat::weight <= 0)
+    if(Cat::weight <= 0)
         return false;
     if(Cat::gender == UNKNOWN_GENDER)
         return false;
@@ -84,7 +84,7 @@ bool Cat::validate() const {
         return false;
 
     return true;
-}
+)
 
 const char* Cat::getName() const {
     return name;
@@ -145,7 +145,7 @@ void Cat::fixCat() {
 }
 
 void Cat::setWeight(Weight weight) {
-    if(weight <= 0 && weight != UNKNOWN_WEIGHT)
+    if(weight <= 0)
     {
         cout << "Cat::setWeight(weight) - invalid weight, [" << weight << "] must be greater than 0" << endl;
         return;

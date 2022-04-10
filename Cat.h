@@ -54,6 +54,5 @@ private:
 
 };
 
-
 extern Cat* headCat;
 #endif
