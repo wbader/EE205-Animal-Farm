@@ -45,6 +45,11 @@ public:
     void fixCat();
     void setWeight(Weight weight);
 
+protected:
+public:
+    void setGender(Gender newGender);
+    void setBreed(Breed newBreed);
+
 private:
     char        name[MAX_CAT_NAME_LENGTH];
     enum Gender gender;

@@ -153,4 +153,21 @@ void Cat::setWeight(Weight weight) {
     Cat::weight = weight;
 }
 
+void Cat::setGender(Gender newGender) {
+    if (Cat::getGender() != UNKNOWN_GENDER)
+    {
+        cerr << "Cat::setGender() - can't change from a known gender" << endl;
+        return;
+    }
+    Cat::gender = newGender;
+}
 
+void Cat::setBreed(Breed newBreed)
+{
+    if(Cat::getBreed() != UNKNOWN_BREED)
+    {
+        cerr << "Cat::setBreed() - can't change from a known breed" << endl;
+    return;
+    }
+    Cat::breed = newBreed;
+}
