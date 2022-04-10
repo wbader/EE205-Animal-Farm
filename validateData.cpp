@@ -9,14 +9,11 @@
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdbool.h>
-#include <string.h>
-#include <stdio.h>
+
 #include <iostream>
 #include <string>
 
 #include "validateData.h"
-#include "catDatabase.h"
 #include "config.h"
 
 /*
@@ -90,10 +87,10 @@ std::string breedName(const enum Breed breed)
         case SPHYNX:
             return "Sphynx";
         default:
-            fprintf(stderr, "%s: Bad breed name passed to breedName()\n", PROGRAM_NAME);
+            std::cerr << PROGRAM_NAME << " Bad breed name passed to breedName()" << std::endl;
             return "ERROR!";
     }
-    fprintf(stderr, "%s: passed through switch in breedName()\n", PROGRAM_NAME);
+    std::cerr << PROGRAM_NAME << " passed through switch in breedName()" << std::endl;
     return "ERROR!";
 }
 
@@ -109,9 +106,9 @@ std::string genderName(const enum Gender gender)
         case FEMALE:
             return "Female";
         default:
-            fprintf(stderr, "%s: Bad breed name passed to breedName()\n", PROGRAM_NAME);
+            std::cerr << PROGRAM_NAME << " Bad gender name passed to genderName()" << std::endl;
             return "ERROR!";
     }
-    fprintf(stderr, "%s: passed through switch in genderName()\n", PROGRAM_NAME);
+    std::cerr << PROGRAM_NAME << " passed through switch in genderName()" << std::endl;
     return "ERROR!";
 }
