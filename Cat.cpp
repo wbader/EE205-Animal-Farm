@@ -57,7 +57,7 @@ Cat::Cat() {
 }
 
 Cat::~Cat() {
-    cout << "Cat [" << name << "] deconstructing" << endl;
+    //cout << "Cat [" << name << "] deconstructing" << endl;
     memset(name, 0, sizeof(name));
     gender = static_cast<Gender>(0);
     breed = static_cast<Breed>(0);
