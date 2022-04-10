@@ -50,7 +50,15 @@ int main()
     if(tempCat->validate())
         cout << "FAILURE! - Default Cat passed validate()" << endl;
     else
-        cout << "Default Cat() does not pass validate()" << endl;
+        cout << "Default Cat() does not pass validate()" << endl << endl;
+
+    tempCat->setName(nullptr);
+    tempCat->setName("");
+    tempCat->setName("a");
+    if(strcmp(tempCat->getName(), "a") == 0)
+        cout << "Name set to 1 char correctly" << endl;
+    else
+        cout << "FAILURE! - Name set to 1 char incorrectly" << endl;
 
     cout << "Main2 - Done with " << PROGRAM_NAME << endl;
 }
