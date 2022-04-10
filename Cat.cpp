@@ -69,15 +69,34 @@ Cat::~Cat() {
 bool Cat::validate() const {
 
     if (name == nullptr)
+    {
+        cerr << PROGRAM_NAME << " validate() failed due to name = nullptr" << endl;
         return false;
+    }
+
     if (strlen(name) == 0 || strlen(name) > MAX_CAT_NAME_LENGTH)
+    {
+        cerr << PROGRAM_NAME << " validate() failed due to invalid cat name length" << endl;
         return false;
+    }
+
     if (weight <= 0)
+    {
+        cerr << PROGRAM_NAME << " validate() failed due to invalid weight" << endl;
         return false;
+    }
+
     if (gender == UNKNOWN_GENDER)
+    {
+        cerr << PROGRAM_NAME << " validate() failed due to invalid gender" << endl;
         return false;
+    }
+
     if (breed == UNKNOWN_BREED)
+    {
+        cerr << PROGRAM_NAME << " validate() failed due to invalid breed" << endl;
         return false;
+    }
 
     return true;
 }
