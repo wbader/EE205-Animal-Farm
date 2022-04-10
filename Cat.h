@@ -8,8 +8,8 @@
 /// @author Waylon Bader <wbader@hawaii.edu>
 /// @date   10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef CAT_H
-#define CAT_H
+
+#pragma once
 
 #include "config.h"
 
@@ -55,4 +55,3 @@ private:
 };
 
 extern Cat* headCat;
-#endif
