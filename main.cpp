@@ -1,20 +1,20 @@
 ///////////////////////////////////////////////////////////////////////////////
-//           University of Hawaii, College of Engineering
-/// @brief   Lab08d - Animal Farm 1 To - EE 205 - Spr 2022
+///          University of Hawaii, College of Engineering
+/// @brief   ee205_animal_farm  - EE 205 - Spr 2022
 ///
 /// @file    main.c
 /// @version 1.0 - Initial version
 ///
-/// This is Animal Farm 1, we're creating a database of cats
-/// using enums and arrays.  This program will be adapted further
-/// to Animal Farm 4, 5 or beyond!
+/// This is Animal Farm 2, we're creating a database of cats using classes and a
+/// linked list implementation.  This program was modified from AF1, and will be adapted further
+/// to AF 3, 4, 5 or beyond!
 ///
 /// Compile: $ make
 ///
 /// Usage:   $ ./animalfarm
 ///
 /// @author  Waylon Bader <wbader@hawaii.edu>
-/// @date    20 Mar 2022
+/// @date    10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
@@ -51,7 +51,8 @@ int main()
         addCat(tempCat5);
 
     printAllCats();
-
+    deleteAllCats();
+    printAllCats();
 
     cout << "Done with " << PROGRAM_NAME << endl;
 
