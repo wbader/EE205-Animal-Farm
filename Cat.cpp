@@ -26,8 +26,8 @@ Cat::Cat(const char *newName,
 
     Cat();
     setName(newName);
-    Cat::gender = newGender;
-    Cat::breed = newBreed;
+    setGender(newGender);
+    setBreed(newBreed);
     Cat::isCatFixed = newIsCatFixed;
     setWeight(newWeight);
     if(!(validate()))
@@ -43,8 +43,8 @@ Cat::Cat(const char *newName,
 
     Cat();
     setName(newName);
-    Cat::gender = newGender;
-    Cat::breed = newBreed;
+    setGender(newGender);
+    setBreed(newBreed);
     setWeight(newWeight);
     if(!(validate()))
     {
