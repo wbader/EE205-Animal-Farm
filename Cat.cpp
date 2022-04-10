@@ -72,19 +72,19 @@ Cat::~Cat() {
 //
 bool Cat::validate() const {
 
-    if(Cat::name == nullptr)
+    if (Cat::name == nullptr)
         return false;
-    if(strlen(Cat::name) == 0 || strlen(Cat::name) > MAX_CAT_NAME_LENGTH)
+    if (strlen(Cat::name) == 0 || strlen(Cat::name) > MAX_CAT_NAME_LENGTH)
         return false;
-    if(Cat::weight <= 0)
+    if (Cat::weight <= 0)
         return false;
-    if(Cat::gender == UNKNOWN_GENDER)
+    if (Cat::gender == UNKNOWN_GENDER)
         return false;
-    if(Cat::breed == UNKNOWN_BREED)
+    if (Cat::breed == UNKNOWN_BREED)
         return false;
 
     return true;
-)
+}
 
 const char* Cat::getName() const {
     return name;
