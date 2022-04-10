@@ -63,7 +63,7 @@ Cat::~Cat() {
     breed = UNKNOWN_BREED;
     isCatFixed = false;
     weight = UNKNOWN_WEIGHT;
-    next = nullptr
+    next = nullptr;
 }
 
 //
