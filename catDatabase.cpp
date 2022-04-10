@@ -70,3 +70,16 @@ bool printAllCats()
     }
     return true;
 }
+
+void deleteAllCats()
+{
+    Cat* temp = catDatabaseHeadPointer;
+    Cat* nextTemp;
+    while (temp != nullptr)
+    {
+        nextTemp = temp->next;
+        delete temp;
+        temp = nextTemp;
+    }
+    catDatabaseHeadPointer = nullptr;
+}
