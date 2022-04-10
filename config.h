@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+
 #define MAX_CAT_NAME_LENGTH (50)
 #define MAX_CATS (1024)
 #define PROGRAM_NAME "Animal Farm 2"
@@ -29,7 +30,7 @@ enum Breed  {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
 
 // structs
-struct CatStruct {
+/*struct CatStruct {
     char               name[MAX_CAT_NAME_LENGTH];
     enum Gender        gender;
     enum Breed         breed;
@@ -38,9 +39,9 @@ struct CatStruct {
     enum Color         collarColor1;
     enum Color         collarColor2;
     unsigned long long liscense;
-};
+};*/
 
 // Global Variables
-extern struct CatStruct cats[MAX_CATS];
-extern NumCats    totalCats;
+//extern struct CatStruct cats[MAX_CATS];
+extern NumCats totalCats;
 

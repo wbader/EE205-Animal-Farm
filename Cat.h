@@ -8,53 +8,48 @@
 /// @author Waylon Bader <wbader@hawaii.edu>
 /// @date   10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#pragma once
+#ifndef CAT_H
+#define CAT_H
 
 #include "config.h"
 
 class Cat {
 public:
-    Cat*                       next;
+    Cat* next;
+
     Cat();
-    Cat(char*                  name,
-        Gender                 newGender,
-        Breed                  newBreed,
-        bool                   newIsCatFixed,
-        Weight                 newWeight,
-        Color                  newCollarColor1,
-        Color                  collarColor2,
-        unsigned long long int liscense);
+    Cat(const char* newName,
+        Gender      newGender,
+        Breed       newBreed,
+        bool        newIsCatFixed,
+        Weight      newWeight);
     ~Cat();
 
     bool print() const noexcept;
+
     bool validate() const;
-private:
-    char               name[MAX_CAT_NAME_LENGTH];
-public:
-    const char *getName() const;
 
-    Gender getGender() const;
+    //Getters
+    const char* getName() const;
+    Gender      getGender() const;
+    Breed       getBreed() const;
+    bool        isFixed() const;
+    Weight      getWeight() const;
 
-    Breed getBreed() const;
-
-    bool isFixed() const;
-
-    Weight getWeight() const;
-
-    Color getCollarColor1() const;
-
-    Color getCollarColor2() const;
-
-    unsigned long long int getLiscense() const;
+    //Setters
+    void setName(const char *name);
+    void fixCat();
+    void setWeight(Weight weight);
 
 private:
-    enum Gender        gender = UNKNOWN_GENDER;
-    enum Breed         breed = UNKNOWN_BREED;
-    bool               isCatFixed = false;
-    Weight             weight = UNKNOWN_WEIGHT;
-    enum Color         collarColor1;
-    enum Color         collarColor2;
-    unsigned long long liscense;
+    char        name[MAX_CAT_NAME_LENGTH];
+    enum Gender gender;
+    enum Breed  breed;
+    bool        isCatFixed;
+    Weight      weight;
 
 };
 
+
+extern Cat* headCat;
+#endif

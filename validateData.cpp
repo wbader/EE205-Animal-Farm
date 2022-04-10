@@ -19,39 +19,8 @@
 #include "reportCats.h"
 #include "catDatabase.h"
 #include "config.h"
+
 /*
-bool checkCatNameForDuplicates(const char newName[])
-{
-    if(findCat(newName) != -1) // if there is a duplicate, return true
-        return true;
-    else                       // otherwise return false
-        return false;
-}
-
-bool checkCatNameForValidLength(const char newName[])
-{
-    if(strlen(newName) < 1 || strlen(newName) > MAX_CAT_NAME_LENGTH)
-        return false;
-    else
-        return true;
-}
-
-bool checkIndexForValidValue(const int index)
-{
-    if(index < 0 || index > totalCats)
-        return false;
-    else
-        return true;
-}
-
-bool checkWeightForValidWeight(const Weight newWeight)
-{
-    if(newWeight <= 0.0)
-        return false;
-    else
-        return true;
-}
-
 unsigned long long getNewLiscenseNumber()
 {
     static unsigned long long latestLiscense = 100;
@@ -59,7 +28,6 @@ unsigned long long getNewLiscenseNumber()
     return latestLiscense++;
 }
 
-*/
 std::string colorName(const enum Color color)
 {
     //BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE
@@ -103,6 +71,7 @@ std::string colorName(const enum Color color)
     fprintf(stderr, "%s: passed through switch in colorName()\n", PROGRAM_NAME);
     return "ERROR!";
 }
+*/
 
 std::string breedName(const enum Breed breed)
 {

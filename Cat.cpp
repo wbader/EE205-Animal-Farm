@@ -18,24 +18,18 @@
 
 using namespace std;
 
-Cat::Cat(char *newName,
+Cat::Cat(const char *newName,
          Gender newGender,
          Breed newBreed,
          bool newIsCatFixed,
-         Weight newWeight,
-         Color newCollarColor1,
-         Color newCollarColor2,
-         unsigned long long int newLiscense) {
+         Weight newWeight) {
 
     Cat();
-    strcpy(name, newName);
-    gender = newGender;
-    breed = newBreed;
-    isCatFixed = newIsCatFixed;
+    setName(newName);
+    Cat::gender = newGender;
+    Cat::breed = newBreed;
+    Cat::isCatFixed = newIsCatFixed;
     weight = newWeight;
-    collarColor1 = newCollarColor1;
-    collarColor2 = newCollarColor2;
-    liscense = newLiscense;
 }
 
 Cat::Cat() {
@@ -44,9 +38,6 @@ Cat::Cat() {
     breed = UNKNOWN_BREED;
     isCatFixed = false;
     weight = UNKNOWN_WEIGHT;
-    collarColor1 = UNKNOWN_COLOR;
-    collarColor2 = UNKNOWN_COLOR;
-    liscense = 0;
     next = NULL;
 }
 
@@ -56,9 +47,6 @@ Cat::~Cat() {
     breed = static_cast<Breed>(0);
     isCatFixed = 0;
     weight = 0;
-    collarColor1 = static_cast<Color>(0);
-    collarColor2 = static_cast<Color>(0);
-    liscense = 0;
 }
 
 // @todo fix validate(), currently just returns true to make the code work
@@ -66,7 +54,7 @@ bool Cat::validate() const {
     return true;
 }
 
-const char *Cat::getName() const {
+const char* Cat::getName() const {
     return name;
 }
 
@@ -86,19 +74,6 @@ Weight Cat::getWeight() const {
     return weight;
 }
 
-Color Cat::getCollarColor1() const {
-    return collarColor1;
-}
-
-Color Cat::getCollarColor2() const {
-    return collarColor2;
-}
-
-unsigned long long int Cat::getLiscense() const {
-    return liscense;
-}
-
-
 /// Format a line for printing the members of a class
 #define FORMAT_LINE(className, member) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
@@ -117,3 +92,28 @@ bool Cat::print() const noexcept {
     FORMAT_LINE("Cat", "weight") << getWeight() << endl;
     return true;
 }
+
+void Cat::setName(const char *name) {
+    if(strlen(name) < 1 || strlen(name) > MAX_CAT_NAME_LENGTH)
+    {
+        cout << "Cat::setName() - invalid length, [" << strlen(name) << "] is not between 1 and " << MAX_CAT_NAME_LENGTH <<endl;
+        return;
+    }
+    strcpy(Cat::name, name);
+}
+
+void Cat::fixCat() {
+    if(!(isFixed()))
+        Cat::isCatFixed = true;
+}
+
+void Cat::setWeight(Weight weight) {
+    if(weight <= 0 && weight != UNKNOWN_WEIGHT)
+    {
+        cout << "Cat::setWeight(weight) - invalid weight, [" << weight << "] must be greater than 0" << endl;
+        return;
+    }
+    Cat::weight = weight;
+}
+
+

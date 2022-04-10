@@ -17,11 +17,14 @@
 
 using namespace std;
 
+Cat* headCat;
+
 int main()
 {
     cout << "Main2 - Starting " << PROGRAM_NAME << endl;
 
-
-
+    Cat* recruit = new Cat("Recruit", MALE, SHORTHAIR, true, 10.0);
+    recruit->print();
+    delete recruit;
     cout << "Main2 - Done with " << PROGRAM_NAME << endl;
 }
