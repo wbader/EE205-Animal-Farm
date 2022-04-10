@@ -11,17 +11,12 @@
 
 #include "catDatabase.h"
 #include "config.h"
+#include "Cat.h"
 
-/*
-void initializeDatabase()
+void addCat(Cat* cat)
 {
-    for(int i = 0; i < MAX_CATS; i++)
-    {
-        cats[i].name[0] = 0;
-        cats[i].weight = 0.0;
-    }
-
-    totalCats = 0;
-
+    Cat* temp = catDatabaseHeadPointer;
+    catDatabaseHeadPointer = cat;
+    cat->next = temp;
 }
-*/
+
