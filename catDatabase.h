@@ -13,6 +13,7 @@
 
 #include "Cat.h"
 
-extern void addCat(Cat* cat);
+extern bool addCat(Cat* cat);
+extern bool validateDatabase();
 
 extern Cat* catDatabaseHeadPointer;
