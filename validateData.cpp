@@ -16,7 +16,6 @@
 #include <string>
 
 #include "validateData.h"
-#include "reportCats.h"
 #include "catDatabase.h"
 #include "config.h"
 

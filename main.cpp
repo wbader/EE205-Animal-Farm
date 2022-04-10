@@ -23,8 +23,6 @@
 #include <iostream>
 
 #include "catDatabase.h"
-#include "reportCats.h"
-#include "updateCats.h"
 #include "deleteCats.h"
 #include "config.h"
 #include "validateData.h"
