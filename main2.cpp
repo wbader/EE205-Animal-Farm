@@ -13,16 +13,44 @@
 
 #include "Cat.h"
 #include "config.h"
+#include "catDatabase.h"
+
 #include <iostream>
+#include <cstring>
 
 using namespace std;
+
+Cat* catDatabaseHeadPointer;
 
 int main()
 {
     cout << "Main2 - Starting " << PROGRAM_NAME << endl;
 
-    Cat* recruit = new Cat("Recruit", MALE, SHORTHAIR, true, 10.0);
-    recruit->print();
-    delete recruit;
+    Cat* tempCat = new Cat();
+    if(strcmp(tempCat->getName(), "" ) == 0)
+        cout << "Default name set correctly" << endl;
+    else
+        cout << "FAILURE! - Default name set incorrectly [" << tempCat->getName() << "]" << endl;
+    if(tempCat->getGender() == UNKNOWN_GENDER)
+        cout << "Default gender set correctly" << endl;
+    else
+        cout << "FAILURE! - Default gender set incorrectly" << endl;
+    if(tempCat->getBreed() == UNKNOWN_BREED)
+        cout << "Default breed set correctly" << endl;
+    else
+        cout << "FAILURE! - Default breed set incorrectly" << endl;
+    if(tempCat->isFixed() == false)
+        cout << "Default fix set correctly" << endl;
+    else
+        cout << "FAILURE! - Default fix set incorrectly" << endl;
+    if(tempCat->getWeight() == UNKNOWN_WEIGHT)
+        cout << "Default weight set correctly" << endl;
+    else
+        cout << "FAILURE! - Default weight set incorrectly" << endl;
+    if(tempCat->validate())
+        cout << "FAILURE! - Default Cat passed validate()" << endl;
+    else
+        cout << "Default Cat() does not pass validate()" << endl;
+
     cout << "Main2 - Done with " << PROGRAM_NAME << endl;
 }
