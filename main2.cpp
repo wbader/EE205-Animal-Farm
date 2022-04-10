@@ -20,7 +20,7 @@
 
 using namespace std;
 
-Cat* catDatabaseHeadPointer;
+Cat* catDatabaseHeadPointer = nullptr;
 
 int main()
 {
@@ -96,8 +96,10 @@ int main()
 
     Cat *tempCat1 = new Cat("Loki", MALE, PERSIAN, 1.0);
     tempCat1->print();
-    catDatabaseHeadPointer = tempCat1;
-
+    addCat(tempCat1);
+    catDatabaseHeadPointer->print();
+    addCat(tempCat);
+    catDatabaseHeadPointer->print();
     delete tempCat;
     delete tempCat1;
 /*
