@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///         University of Hawaii, College of Engineering
-/// @brief  ee205_lab_08d_animal_farm_1_to_clion - EE 205 - Spr 2022
+/// @brief  ee205_animal_farm - EE 205 - Spr 2022
 ///
-/// @file CatStruct.cpp
+/// @file Cat.cpp
 /// @version 1.0
 ///
 /// @author Waylon Bader <wbader@hawaii.edu>
-/// @date   31_Mar_2022
+/// @date   10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
 #include "validateData.h"

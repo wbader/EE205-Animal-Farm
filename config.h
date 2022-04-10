@@ -11,23 +11,19 @@
 
 #pragma once
 
-#include <stdbool.h>
-#include <stddef.h>
-
-
 #define MAX_CAT_NAME_LENGTH (50)
-#define MAX_CATS (1024)
+//#define MAX_CATS (1024)
 #define PROGRAM_NAME "Animal Farm 2"
 #define UNKNOWN_WEIGHT (-1)
 
 // typedefs
 typedef float Weight;
-typedef int   NumCats;
+//typedef int   NumCats;
 
 // enums
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 enum Breed  {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
+//enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
 
 // structs
 /*struct CatStruct {
@@ -43,5 +39,5 @@ enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN
 
 // Global Variables
 //extern struct CatStruct cats[MAX_CATS];
-extern NumCats totalCats;
+//extern NumCats totalCats;
 
