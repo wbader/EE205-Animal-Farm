@@ -55,3 +55,18 @@ bool validateDatabase()
     return true;
 }
 
+bool printAllCats()
+{
+    if(!(validateDatabase()))
+    {
+        cerr << PROGRAM_NAME << " printAllCats(): validateDatabase() failed" << endl;
+        return false;
+    }
+    Cat* temp = catDatabaseHeadPointer;
+    while (temp != nullptr)
+    {
+        temp->print();
+        temp = temp->next;
+    }
+    return true;
+}
