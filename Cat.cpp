@@ -29,7 +29,27 @@ Cat::Cat(const char *newName,
     Cat::gender = newGender;
     Cat::breed = newBreed;
     Cat::isCatFixed = newIsCatFixed;
-    weight = newWeight;
+    setWeight(newWeight);
+    if(!(validate()))
+    {
+        cout << "Cat::Cat(name, gender, breed, isFixed, weight) failed validation" << endl;
+    }
+}
+
+Cat::Cat(const char *newName,
+         Gender newGender,
+         Breed newBreed,
+         Weight newWeight) {
+
+    Cat();
+    setName(newName);
+    Cat::gender = newGender;
+    Cat::breed = newBreed;
+    setWeight(newWeight);
+    if(!(validate()))
+    {
+        cout << "Cat::Cat(name, gender, breed, weight) failed validation" << endl;
+    }
 }
 
 Cat::Cat() {
@@ -49,8 +69,19 @@ Cat::~Cat() {
     weight = 0;
 }
 
-// @todo fix validate(), currently just returns true to make the code work
+//
 bool Cat::validate() const {
+    if(Cat::name == nullptr)
+        return false;
+    if(strlen(Cat::name) == 0 || strlen(Cat::name) > MAX_CAT_NAME_LENGTH)
+        return false;
+    if(Cat::weight != UNKNOWN_WEIGHT && Cat::weight <= 0)
+        return false;
+    if(Cat::gender == UNKNOWN_GENDER)
+        return false;
+    if(Cat::breed == UNKNOWN_BREED)
+        return false;
+
     return true;
 }
 

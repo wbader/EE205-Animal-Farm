@@ -23,6 +23,10 @@ public:
         Breed       newBreed,
         bool        newIsCatFixed,
         Weight      newWeight);
+    Cat(const char* newName,
+        Gender      newGender,
+        Breed       newBreed,
+        Weight      newWeight);
     ~Cat();
 
     bool print() const noexcept;
