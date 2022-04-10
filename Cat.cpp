@@ -23,13 +23,8 @@ Cat::Cat(const char *newName,
          Breed newBreed,
          bool newIsCatFixed,
          Weight newWeight) {
-
-    Cat();
-    setName(newName);
-    setGender(newGender);
-    setBreed(newBreed);
+    Cat(newName, newGender, newBreed, newWeight);
     Cat::isCatFixed = newIsCatFixed;
-    setWeight(newWeight);
     if(!(validate()))
     {
         cerr << "Cat::Cat(name, gender, breed, isFixed, weight) failed validation" << endl;
@@ -62,6 +57,7 @@ Cat::Cat() {
 }
 
 Cat::~Cat() {
+    cout << "Cat [" << name << "] deconstructing" << endl;
     memset(name, 0, sizeof(name));
     gender = static_cast<Gender>(0);
     breed = static_cast<Breed>(0);
@@ -72,15 +68,15 @@ Cat::~Cat() {
 //
 bool Cat::validate() const {
 
-    if (Cat::name == nullptr)
+    if (name == nullptr)
         return false;
-    if (strlen(Cat::name) == 0 || strlen(Cat::name) > MAX_CAT_NAME_LENGTH)
+    if (strlen(name) == 0 || strlen(name) > MAX_CAT_NAME_LENGTH)
         return false;
-    if (Cat::weight <= 0)
+    if (weight <= 0)
         return false;
-    if (Cat::gender == UNKNOWN_GENDER)
+    if (gender == UNKNOWN_GENDER)
         return false;
-    if (Cat::breed == UNKNOWN_BREED)
+    if (breed == UNKNOWN_BREED)
         return false;
 
     return true;
@@ -141,7 +137,7 @@ void Cat::setName(const char *name) {
 
 void Cat::fixCat() {
     if(!(isFixed()))
-        Cat::isCatFixed = true;
+        isCatFixed = true;
 }
 
 void Cat::setWeight(Weight weight) {
@@ -150,7 +146,7 @@ void Cat::setWeight(Weight weight) {
         cout << "Cat::setWeight(weight) - invalid weight, [" << weight << "] must be greater than 0" << endl;
         return;
     }
-    Cat::weight = weight;
+    weight = weight;
 }
 
 void Cat::setGender(Gender newGender) {
@@ -159,7 +155,7 @@ void Cat::setGender(Gender newGender) {
         cerr << "Cat::setGender() - can't change from a known gender" << endl;
         return;
     }
-    Cat::gender = newGender;
+    gender = newGender;
 }
 
 void Cat::setBreed(Breed newBreed)
@@ -167,7 +163,7 @@ void Cat::setBreed(Breed newBreed)
     if(Cat::getBreed() != UNKNOWN_BREED)
     {
         cerr << "Cat::setBreed() - can't change from a known breed" << endl;
-    return;
+        return;
     }
-    Cat::breed = newBreed;
+    breed = newBreed;
 }
