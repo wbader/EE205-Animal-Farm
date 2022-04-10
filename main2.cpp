@@ -95,6 +95,8 @@ int main()
         cout << "We've created a valid cat!" << endl;
 
     Cat *tempCat1 = new Cat("Loki", MALE, PERSIAN, 1.0);
+    if(tempCat1->validate())
+        cout << "We've created [" << tempCat1->getName() << "], who is a valid cat!" << endl;
     Cat *tempCat2 = new Cat("Milo", UNKNOWN_GENDER, MANX, 1.1);
     Cat *tempCat3 = new Cat("Bella", FEMALE, UNKNOWN_BREED, 1.2);
     Cat *tempCat4 = new Cat("Kali", FEMALE, SHORTHAIR, UNKNOWN_WEIGHT);
