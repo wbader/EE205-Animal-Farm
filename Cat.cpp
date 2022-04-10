@@ -71,6 +71,7 @@ Cat::~Cat() {
 
 //
 bool Cat::validate() const {
+
     if(Cat::name == nullptr)
         return false;
     if(strlen(Cat::name) == 0 || strlen(Cat::name) > MAX_CAT_NAME_LENGTH)
