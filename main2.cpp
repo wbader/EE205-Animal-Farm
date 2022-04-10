@@ -9,7 +9,7 @@
 /// @date   10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-/// This is just a test bed for the Cat class, not production code
+/// This is just a test bed for the Cat class and the linked list, not production code
 
 #include "Cat.h"
 #include "config.h"
@@ -106,6 +106,34 @@ int main()
     delete tempCat2;
     delete tempCat3;
     delete tempCat4;
+
+    Cat *tempCat5 = new Cat("Loki", MALE, PERSIAN, 1.0);
+    if(tempCat5->validate())
+        addCat(tempCat5);
+    Cat *tempCat6 = new Cat("Milo", MALE, MANX, 1.1);
+    if(tempCat6->validate())
+        addCat(tempCat6);
+    Cat *tempCat7 = new Cat("Bella", FEMALE, MAINE_COON, 1.2);
+    if(tempCat7->validate())
+        addCat(tempCat7);
+    Cat *tempCat8 = new Cat("Kali", FEMALE, SHORTHAIR, 1.3);
+    if(tempCat8->validate())
+        addCat(tempCat8);
+    Cat *tempCat9 = new Cat("Trin", FEMALE, MANX, 1.4);
+    if(tempCat9->validate())
+        addCat(tempCat9);
+    Cat *tempCat10 = new Cat("Chili", MALE, SHORTHAIR, 1.5);
+    if(tempCat10->validate())
+        addCat(tempCat10);
+
+    printAllCats();
+
+    delete tempCat5;
+    delete tempCat6;
+    delete tempCat7;
+    delete tempCat8;
+    delete tempCat9;
+    delete tempCat10;
 
     cout << endl;
 
