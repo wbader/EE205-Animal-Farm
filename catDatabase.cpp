@@ -12,6 +12,7 @@
 #include "catDatabase.h"
 #include "config.h"
 
+/*
 void initializeDatabase()
 {
     for(int i = 0; i < MAX_CATS; i++)
@@ -23,3 +24,4 @@ void initializeDatabase()
     totalCats = 0;
 
 }
+*/

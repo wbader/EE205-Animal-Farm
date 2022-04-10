@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
+#include <iostream>
 
 #include "catDatabase.h"
 #include "addCats.h"
@@ -32,12 +33,18 @@
 struct CatStruct  cats[MAX_CATS];
 NumCats     totalCats;
 
+using namespace std;
 //  int argc, char* argv[] // if i need command line add this to main()
 int main()
 {
     // @todo: use assert() to test code
 
-    initializeDatabase();
+    cout << "Starting " << PROGRAM_NAME << endl;
+
+
+    cout << "Done with " << PROGRAM_NAME << endl;
+
+/*    initializeDatabase();
 
     addCat("Leonard", MALE, SHORTHAIR, false, 13.1, BLACK, WHITE, getNewLiscenseNumber());
     addCat("Penny", FEMALE, SHORTHAIR, true, 9.9, RED, GREEN, getNewLiscenseNumber());
@@ -122,4 +129,5 @@ int main()
 
     printAllCats();
 
+ */
 }

@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///         University of Hawaii, College of Engineering
-/// @brief  ee205_lab_08d_animal_farm_1_to_clion - EE 205 - Spr 2022
+/// @brief  EE205_Animal_Farm - EE 205 - Spr 2022
 ///
 /// @file config.h
 /// @version 1.0
 ///
 /// @author Waylon Bader <wbader@hawaii.edu>
-/// @date   20_Mar_2022
+/// @date   10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -16,7 +16,7 @@
 
 #define MAX_CAT_NAME_LENGTH (50)
 #define MAX_CATS (1024)
-#define PROGRAM_NAME "Animal Farm 1"
+#define PROGRAM_NAME "Animal Farm 2"
 #define UNKNOWN_WEIGHT (-1)
 
 // typedefs

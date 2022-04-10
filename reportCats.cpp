@@ -18,7 +18,7 @@
 #include "catDatabase.h"
 #include "config.h"
 #include "validateData.h"
-
+/*
 void printCat(const int index)
 {
     if(checkIndexForValidValue(index) == false)
@@ -61,3 +61,4 @@ int findCat(const char catName[])
     }
     return -1;
 }
+ */

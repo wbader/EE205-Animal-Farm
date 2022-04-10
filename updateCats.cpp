@@ -18,7 +18,7 @@
 #include "reportCats.h"
 #include "config.h"
 #include "validateData.h"
-
+/*
 int updateCatName(const int index, const char newName[])
 {
     if(checkCatNameForValidLength(newName) == false)
@@ -124,4 +124,4 @@ int updateLiscense(const int index, const unsigned long long newLiscense)
     return 0;
 }
 
-
+*/

@@ -15,7 +15,7 @@
 #include "catDatabase.h"
 #include "deleteCats.h"
 #include "config.h"
-
+/*
 void deleteAllCats()
 {
     totalCats = 0;
@@ -43,3 +43,4 @@ void deleteCat(const int index)
 
     totalCats = totalCats - 1;
 }
+ */

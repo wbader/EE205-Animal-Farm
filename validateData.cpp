@@ -17,7 +17,7 @@
 #include "reportCats.h"
 #include "catDatabase.h"
 #include "config.h"
-
+/*
 bool checkCatNameForDuplicates(const char newName[])
 {
     if(findCat(newName) != -1) // if there is a duplicate, return true
@@ -144,3 +144,4 @@ char* genderName(const enum Gender gender)
     fprintf(stderr, "%s: passed through switch in genderName()\n", PROGRAM_NAME);
     return "ERROR!";
 }
+*/
