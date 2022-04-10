@@ -95,11 +95,9 @@ int main()
         cout << "We've created a valid cat!" << endl;
 
     Cat *tempCat1 = new Cat("Loki", MALE, PERSIAN, 1.0);
-    tempCat1->print();
     addCat(tempCat1);
-    catDatabaseHeadPointer->print();
     addCat(tempCat);
-    catDatabaseHeadPointer->print();
+    printAllCats();
     delete tempCat;
     delete tempCat1;
 /*
