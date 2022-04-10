@@ -43,7 +43,7 @@ public:
     //Setters
     void setName(const char *name);
     void fixCat();
-    void setWeight(Weight weight);
+    void setWeight(Weight newWeight);
 
 protected:
 public:

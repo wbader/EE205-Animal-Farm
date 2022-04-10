@@ -89,14 +89,13 @@ int main()
     else
         cout << "FAILURE! - setCat() set incorrectly" << endl;
     tempCat->setWeight(0.0);
-    tempCat->setWeight((10.0));
+    tempCat->setWeight((1.0/1024.0));
     tempCat->print();
     if(tempCat->validate())
         cout << "We've created a valid cat!" << endl;
 
     Cat *tempCat1 = new Cat("Loki", MALE, PERSIAN, 1.0);
-    if(tempCat1->validate())
-        cout << "We've created a valid cat!" << endl;
+
     tempCat1->print();
 
     delete tempCat;

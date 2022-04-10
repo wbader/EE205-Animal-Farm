@@ -140,13 +140,13 @@ void Cat::fixCat() {
         isCatFixed = true;
 }
 
-void Cat::setWeight(Weight weight) {
-    if(weight <= 0)
+void Cat::setWeight(Weight newWeight) {
+    if(newWeight <= 0)
     {
-        cout << "Cat::setWeight(weight) - invalid weight, [" << weight << "] must be greater than 0" << endl;
+        cout << "Cat::setWeight(weight) - invalid weight, [" << newWeight << "] must be greater than 0" << endl;
         return;
     }
-    weight = weight;
+    weight = newWeight;
 }
 
 void Cat::setGender(Gender newGender) {
