@@ -128,12 +128,12 @@ int main()
 
     printAllCats();
 
-    Cat* tempCat11 = findCat("Bella");
+    Cat* tempCat11 = findCatByName("Bella");
     if(tempCat11 != nullptr)
         cout << "Found [" << tempCat11->getName() << "] in database!" << endl;
     else
         cout << "[Bella] not found in database!" << endl;
-    tempCat11 = findCat("Belinda");
+    tempCat11 = findCatByName("Belinda");
     if(tempCat11 != nullptr)
         cout << "Found [" << tempCat11->getName() << "] in database!" << endl;
     else

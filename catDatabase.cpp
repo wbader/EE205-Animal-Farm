@@ -85,8 +85,13 @@ void deleteAllCats()
     catDatabaseHeadPointer = nullptr;
 }
 
-Cat* findCat(const char* name)
+Cat* findCatByName(const char* name)
 {
+    if(!(validateDatabase()))
+    {
+        cerr << PROGRAM_NAME << " findCatByName(): validateDatabase() failed" << endl;
+        return nullptr;
+    }
     Cat* temp = catDatabaseHeadPointer;
     while (temp != nullptr)
     {

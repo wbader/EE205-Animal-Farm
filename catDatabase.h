@@ -17,6 +17,6 @@ extern bool addCat(Cat* cat);
 extern bool validateDatabase();
 extern bool printAllCats();
 extern void deleteAllCats();
-extern Cat* findCat(const char* name);
+extern Cat* findCatByName(const char* name);
 
 extern Cat* catDatabaseHeadPointer;
