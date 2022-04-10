@@ -94,6 +94,11 @@ bool Cat::print() const noexcept {
 }
 
 void Cat::setName(const char *name) {
+    if(name == nullptr)
+    {
+        cout << "Cat::setName() - name can't be nullptr" << endl;
+        return;
+    }
     if(strlen(name) < 1 || strlen(name) > MAX_CAT_NAME_LENGTH)
     {
         cout << "Cat::setName() - invalid length, [" << strlen(name) << "] is not between 1 and " << MAX_CAT_NAME_LENGTH <<endl;
