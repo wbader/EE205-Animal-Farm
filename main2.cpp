@@ -24,7 +24,7 @@ Cat* catDatabaseHeadPointer;
 
 int main()
 {
-    cout << "Main2 - Starting " << PROGRAM_NAME << endl;
+    cout << "DEBUG - Starting " << PROGRAM_NAME << endl;
 
     Cat* tempCat = new Cat();
     if(strcmp(tempCat->getName(), "" ) == 0)
@@ -50,7 +50,9 @@ int main()
     if(tempCat->validate())
         cout << "FAILURE! - Default Cat passed validate()" << endl;
     else
-        cout << "Default Cat() does not pass validate()" << endl << endl;
+        cout << "Default Cat() does not pass validate()" << endl;
+
+    cout << endl;
 
     tempCat->setName(nullptr);
     tempCat->setName("");
@@ -59,6 +61,34 @@ int main()
         cout << "Name set to 1 char correctly" << endl;
     else
         cout << "FAILURE! - Name set to 1 char incorrectly" << endl;
+    tempCat->setName("1234567890123456789012345678901234567890123456789");
+    if(strcmp(tempCat->getName(), "1234567890123456789012345678901234567890123456789") == 0)
+        cout << "Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars correctly" << endl;
+    else
+        cout << "FAILURE! - Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars incorrectly" << endl;
+    tempCat->setName("123456789012345678901234567890123456789012345678901");
+    tempCat->setGender(FEMALE);
+    if(tempCat->getGender() == FEMALE)
+        cout << "Gender set correctly" << endl;
+    else
+        cout << "FAILURE! - Gender set incorrectly" << endl;
+    tempCat->setGender(MALE);
+    tempCat->setBreed(MAINE_COON);
+    if(tempCat->getBreed() == MAINE_COON)
+        cout << "Breed set correctly" << endl;
+    else
+        cout << "FAILURE! - Breed set incorrectly" << endl;
+    tempCat->setBreed(SHORTHAIR);
+    if(tempCat->isFixed() == false)
+        cout << "isFixed set correctly in default" << endl;
+    else
+        cout << "FAILURE! - isFixed set incorrectly in default" << endl;
+    tempCat->fixCat();
+    if(tempCat->isFixed() == true)
+        cout << "fixCat() sets correctly" << endl;
+    else
+        cout << "FAILURE! - setCat() set incorrectly" << endl;
 
-    cout << "Main2 - Done with " << PROGRAM_NAME << endl;
+
+    cout << "DEBUG - Done with " << PROGRAM_NAME << endl;
 }
