@@ -53,16 +53,17 @@ Cat::Cat() {
     breed = UNKNOWN_BREED;
     isCatFixed = false;
     weight = UNKNOWN_WEIGHT;
-    next = NULL;
+    next = nullptr;
 }
 
 Cat::~Cat() {
     //cout << "Cat [" << name << "] deconstructing" << endl;
     memset(name, 0, sizeof(name));
-    gender = static_cast<Gender>(0);
-    breed = static_cast<Breed>(0);
-    isCatFixed = 0;
-    weight = 0;
+    gender = UNKNOWN_GENDER;
+    breed = UNKNOWN_BREED;
+    isCatFixed = false;
+    weight = UNKNOWN_WEIGHT;
+    next = nullptr
 }
 
 //
