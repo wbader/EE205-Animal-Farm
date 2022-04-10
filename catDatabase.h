@@ -11,5 +11,8 @@
 
 #pragma once
 
-// function declartions
+#include "Cat.h"
+
 extern void initializeDatabase();
+
+extern Cat* catDatabaseHeadPointer;

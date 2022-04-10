@@ -53,5 +53,3 @@ private:
     Weight      weight;
 
 };
-
-extern Cat* headCat;

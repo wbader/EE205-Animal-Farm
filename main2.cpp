@@ -17,8 +17,6 @@
 
 using namespace std;
 
-Cat* headCat;
-
 int main()
 {
     cout << "Main2 - Starting " << PROGRAM_NAME << endl;
