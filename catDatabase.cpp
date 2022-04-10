@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <cstring>
 
 #include "catDatabase.h"
 #include "config.h"
@@ -82,4 +83,16 @@ void deleteAllCats()
         temp = nextTemp;
     }
     catDatabaseHeadPointer = nullptr;
+}
+
+Cat* findCat(const char* name)
+{
+    Cat* temp = catDatabaseHeadPointer;
+    while (temp != nullptr)
+    {
+        if(strcmp(temp->getName(), name) == 0)
+            return temp;
+        temp = temp->next;
+    }
+    return nullptr;
 }
