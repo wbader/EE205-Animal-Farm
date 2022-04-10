@@ -17,114 +17,42 @@
 /// @date    20 Mar 2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <string.h>
-#include <stddef.h>
 #include <iostream>
 
 #include "catDatabase.h"
-#include "deleteCats.h"
 #include "config.h"
 #include "validateData.h"
 
-struct CatStruct  cats[MAX_CATS];
-NumCats     totalCats;
-
 using namespace std;
-//  int argc, char* argv[] // if i need command line add this to main()
+
+Cat* catDatabaseHeadPointer = nullptr;
+
 int main()
 {
-    // @todo: use assert() to test code
 
     cout << "Starting " << PROGRAM_NAME << endl;
+    Cat *tempCat0 = new Cat("Loki", MALE, PERSIAN, 1.0);
+    if(tempCat0->validate())
+        addCat(tempCat0);
+    Cat *tempCat1 = new Cat("Milo", MALE, MANX, 1.1);
+    if(tempCat1->validate())
+        addCat(tempCat1);
+    Cat *tempCat2 = new Cat("Bella", FEMALE, MAINE_COON, 1.2);
+    if(tempCat2->validate())
+        addCat(tempCat2);
+    Cat *tempCat3 = new Cat("Kali", FEMALE, SHORTHAIR, 1.3);
+    if(tempCat3->validate())
+        addCat(tempCat3);
+    Cat *tempCat4 = new Cat("Trin", FEMALE, MANX, 1.4);
+    if(tempCat4->validate())
+        addCat(tempCat4);
+    Cat *tempCat5 = new Cat("Chili", MALE, SHORTHAIR, 1.5);
+    if(tempCat5->validate())
+        addCat(tempCat5);
+
+    printAllCats();
 
 
     cout << "Done with " << PROGRAM_NAME << endl;
 
-/*    initializeDatabase();
-
-    addCat("Leonard", MALE, SHORTHAIR, false, 13.1, BLACK, WHITE, getNewLiscenseNumber());
-    addCat("Penny", FEMALE, SHORTHAIR, true, 9.9, RED, GREEN, getNewLiscenseNumber());
-    addCat("", UNKNOWN_GENDER, SPHYNX, true, 10, GREY, WHITE, getNewLiscenseNumber());  // Should fail
-    addCat("Recruit", MALE, SHORTHAIR, true, 0, BLUE, RED, getNewLiscenseNumber());  // Should fail
-    addCat("012345678901234567890123456789012345678901234567890", MALE, SPHYNX, false, 9.5, PURPLE, RED, getNewLiscenseNumber()); // Should fail
-
-    printAllCats();
-
-    printf("\n");
-
-    int testCat = findCat("Recruit");  // Should fail
-    if(testCat != -1)
-        printCat(testCat);
-
-    addCat("Recruit", MALE, SHORTHAIR, true, 10.4, BLUE, RED, getNewLiscenseNumber());
-
-    testCat = findCat("Recruit");
-    if(testCat != -1)
-        printCat(testCat);
-    addCat("Recruit", MALE, SHORTHAIR, true, 10.4, BLUE, RED, getNewLiscenseNumber());
-
-    testCat = findCat("Recruit");
-    if(testCat != -1)
-        printCat(testCat);
-
-    updateCatName(2, "Big cat");
-    printCat(2);
-
-    printf("\n");
-
-    updateCatName(2, "Leonard"); // Should fail
-    updateCatName(3, "Recurit"); // Should fail
-    updateCatName(1, "");            // Should fail
-    updateCatName(1, "012345678901234567890123456789012345678901234567890"); // Should fail
-
-    printf("\n");
-
-    printCat(0);
-    fixCat(0);
-    printCat(0);
-    fixCat(0);
-
-    printf("\n");
-
-    printCat(2);
-    updateCatWeight(2, 13.0);
-    printCat(2);
-    updateCatWeight(15, 2.0);  // Should fail
-
-    printf("\n");
-
-    printCat(0);
-    updateCollarColor1(0, WHITE); // no validation yet, so should be fine
-    updateCollarColor2(0, BLACK); // should be fine now, when above fails this will fail
-    printCat(0);
-
-    printf("\n");
-
-    printCat(2);
-    updateLiscense(2, 100); // should fail, no validation yet
-    updateLiscense(2, getNewLiscenseNumber());
-    printCat(2);
-
-    printf("\n");
-
-    printCat(1);
-    updateCatWeight(1, -15.2); // Should fail
-    printCat(1);
-
-    printf("\n");
-
-    printAllCats();
-    deleteCat(0);
-
-    printf("\n");
-
-    printAllCats();
-    deleteAllCats();
-
-    printf("\n");
-
-    printAllCats();
-
- */
 }
