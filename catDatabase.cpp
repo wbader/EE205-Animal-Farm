@@ -74,6 +74,11 @@ bool printAllCats()
 
 void deleteAllCats()
 {
+    if(!(validateDatabase()))
+    {
+        cerr << PROGRAM_NAME << " deleteAllCats(): validateDatabase() failed prior to deletion" << endl;
+        return;
+    }
     Cat* temp = catDatabaseHeadPointer;
     Cat* nextTemp;
     while (temp != nullptr)
@@ -83,6 +88,11 @@ void deleteAllCats()
         temp = nextTemp;
     }
     catDatabaseHeadPointer = nullptr;
+    if(!(validateDatabase()))
+    {
+        cerr << PROGRAM_NAME << " deleteAllCats(): validateDatabase() failed after deletion" << endl;
+        return;
+    }
 }
 
 Cat* findCatByName(const char* name)
@@ -100,4 +110,36 @@ Cat* findCatByName(const char* name)
         temp = temp->next;
     }
     return nullptr;
+}
+
+bool deleteCat(const char* name)
+{
+    if(!(validateDatabase()))
+    {
+        cerr << PROGRAM_NAME << " deleteCat(): validateDatabase() failed prior to deletion" << endl;
+        return false;
+    }
+    Cat* temp = catDatabaseHeadPointer;
+    Cat* prev = catDatabaseHeadPointer;
+    while(temp != nullptr)
+    {
+        if(strcmp(temp->getName(), name) == 0)
+        {
+            Cat* next = temp->next;
+            if(temp == catDatabaseHeadPointer)
+                catDatabaseHeadPointer = next;
+            else
+                prev->next = next;
+            delete temp;
+            return true;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    if(!(validateDatabase()))
+    {
+        cerr << PROGRAM_NAME << " deleteCat(): validateDatabase() failed after deletion" << endl;
+        return false;
+    }
+    return false;
 }

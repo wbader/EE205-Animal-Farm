@@ -138,6 +138,15 @@ int main()
         cout << "Found [" << tempCat11->getName() << "] in database!" << endl;
     else
         cout << "[Belinda] not found in database!" << endl;
+    const char deleteName[] = "Bella";
+    if(deleteCat(deleteName))
+        cout << deleteName << " deleted successfully" << endl;
+    else
+        cout << "Error deleting [" << deleteName << "] from database" << endl;
+    if(deleteCat(deleteName))
+        cout << deleteName << " deleted successfully" << endl;
+    else
+        cout << "Error deleting [" << deleteName << "] from database" << endl;
     /*
     delete tempCat5;
     delete tempCat6;
