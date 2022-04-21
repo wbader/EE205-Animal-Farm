@@ -9,16 +9,22 @@
 /// @date   20_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Node.h"
+#include "config.h"
 
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
     return (&node1 > &node2);
 }
 
 bool Node::operator>(const Node &rightSide) {
-    return compareByAddress(this, *rightSide);
+    //return compareByAddress(this, rightSide);
+    return false;
 }
 
 bool Node::validate() const noexcept {
     return false;
+}
+
+void Node::dump() const {
+
 }
 

@@ -12,21 +12,24 @@
 #pragma once
 
 #include "config.h"
+#include "Weight.h"
 
 class Cat {
 public:
     Cat* next;
 
+    constexpr static const Weight::t_weight MAX_WEIGHT = 40.0;
+
     Cat();
-    Cat(const char* newName,
-        Gender      newGender,
-        Breed       newBreed,
-        bool        newIsCatFixed,
-        Weight      newWeight);
-    Cat(const char* newName,
-        Gender      newGender,
-        Breed       newBreed,
-        Weight      newWeight);
+    Cat(const char*      newName,
+        Gender           newGender,
+        Breed            newBreed,
+        bool             newIsCatFixed,
+        Weight::t_weight newWeight);
+    Cat(const char*      newName,
+        Gender           newGender,
+        Breed            newBreed,
+        Weight::t_weight newWeight);
     ~Cat();
 
     bool print() const noexcept;
@@ -43,10 +46,8 @@ public:
     //Setters
     void setName(const char *name);
     void fixCat();
-    void setWeight(Weight newWeight);
+    void setWeight(Weight::t_weight newWeight);
 
-protected:
-public:
     void setGender(Gender newGender);
     void setBreed(Breed newBreed);
 

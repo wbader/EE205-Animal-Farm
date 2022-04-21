@@ -14,6 +14,7 @@
 #include "Cat.h"
 #include "config.h"
 #include "catDatabase.h"
+#include "Weight.h"
 
 #include <iostream>
 #include <cstring>
@@ -43,7 +44,7 @@ int main()
         cout << "Default fix set correctly" << endl;
     else
         cout << "FAILURE! - Default fix set incorrectly" << endl;
-    if(tempCat->getWeight() == UNKNOWN_WEIGHT)
+    if(tempCat->getWeight().validate())
         cout << "Default weight set correctly" << endl;
     else
         cout << "FAILURE! - Default weight set incorrectly" << endl;
@@ -99,7 +100,7 @@ int main()
         cout << "We've created [" << tempCat1->getName() << "], who is a valid cat!" << endl;
     Cat *tempCat2 = new Cat("Milo", UNKNOWN_GENDER, MANX, 1.1);
     Cat *tempCat3 = new Cat("Bella", FEMALE, UNKNOWN_BREED, 1.2);
-    Cat *tempCat4 = new Cat("Kali", FEMALE, SHORTHAIR, UNKNOWN_WEIGHT);
+    Cat *tempCat4 = new Cat("Kali", FEMALE, SHORTHAIR, 0.0);
 
     delete tempCat;
     delete tempCat1;
