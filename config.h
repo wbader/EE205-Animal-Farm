@@ -14,14 +14,8 @@
 #include <stdexcept>
 #include <ostream>
 
-#define MAX_CAT_NAME_LENGTH (50)
-//#define MAX_CATS (1024)
 #define PROGRAM_NAME "Animal Farm 2"
-//#define UNKNOWN_WEIGHT (-1)
 
-
-// enums
-//enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 /// A gender... for educational use only. This is not intended to be
 /// inclusive of all possible genders
 enum class Gender {
@@ -56,6 +50,7 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Gender& rhs_Gen
     return lhs_stream;
 }
 
+/// Breed
 enum class Breed  {UNKNOWN_BREED = 0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 
 inline std::ostream& operator<<( std::ostream& lhs_stream, const Breed& rhs_Breed ){

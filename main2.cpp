@@ -65,11 +65,7 @@ int main()
         cout << "Name set to 1 char correctly" << endl;
     else
         cout << "FAILURE! - Name set to 1 char incorrectly" << endl;
-    tempCat->setName("1234567890123456789012345678901234567890123456789");
-    if(tempCat->getName() == "1234567890123456789012345678901234567890123456789")
-        cout << "Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars correctly" << endl;
-    else
-        cout << "FAILURE! - Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars incorrectly" << endl;
+
     tempCat->setName("123456789012345678901234567890123456789012345678901");
     tempCat->setGender(Gender::FEMALE);
     if(tempCat->getGender() == Gender::FEMALE)

@@ -9,7 +9,6 @@
 /// @date   10_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
-#include "validateData.h"
 #include "config.h"
 
 #include <string>
@@ -19,12 +18,12 @@
 
 using namespace std;
 
-Cat::Cat(string newName,
+Cat::Cat(const string& newName,
          Gender newGender,
          Breed newBreed,
          bool newIsCatFixed,
-         Weight::t_weight newWeight) {
-    Cat(newName, newGender, newBreed, newWeight);
+         Weight::t_weight newWeight) : Cat(newName, newGender, newBreed, newWeight) {
+
     Cat::isCatFixed = newIsCatFixed;
     if(!(validate()))
     {
@@ -32,12 +31,11 @@ Cat::Cat(string newName,
     }
 }
 
-Cat::Cat(string newName,
+Cat::Cat(const string& newName,
          Gender newGender,
          Breed newBreed,
-         Weight::t_weight newWeight) {
+         Weight::t_weight newWeight) : Cat() {
 
-    Cat();
     setName(newName);
     setGender(newGender);
     setBreed(newBreed);
@@ -58,7 +56,7 @@ Cat::Cat() {
 }
 
 Cat::~Cat() {
-    //cout << "Cat [" << name << "] deconstructing" << endl;
+    /// cout << "Cat [" << name << "] deconstructing" << endl;
     name.clear();
     gender = Gender::UNKNOWN_GENDER;
     breed = Breed::UNKNOWN_BREED;
@@ -66,7 +64,6 @@ Cat::~Cat() {
     next = nullptr;
 }
 
-//
 bool Cat::validate() const {
 
     if (name.empty())
@@ -136,11 +133,9 @@ bool Cat::print() const noexcept {
 }
 
 void Cat::setName(const string &newName) {
-    if(newName.empty())
-    {
+    if (newName.empty())
         throw invalid_argument(PROGRAM_NAME " Cat::setName(string): string can't be empty");
-        return;
-    }
+
     name = newName;
 }
 
@@ -159,19 +154,15 @@ void Cat::setWeight(float newWeight) {
 
 void Cat::setGender(Gender newGender) {
     if (Cat::getGender() != Gender::UNKNOWN_GENDER)
-    {
-        cerr << "Cat::setGender() - can't change from a known gender" << endl;
-        return;
-    }
+        throw invalid_argument(PROGRAM_NAME " Cat::setGender() - can't change from a known gender");
+
     gender = newGender;
 }
 
 void Cat::setBreed(Breed newBreed)
 {
-    if(Cat::getBreed() != Breed::UNKNOWN_BREED)
-    {
-        cerr << "Cat::setBreed() - can't change from a known breed" << endl;
-        return;
-    }
+    if (Cat::getBreed() != Breed::UNKNOWN_BREED)
+        throw invalid_argument(PROGRAM_NAME " Cat::setBreed() - can't change from a known breed");
+
     breed = newBreed;
 }

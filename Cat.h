@@ -23,12 +23,12 @@ public:
     constexpr static const Weight::t_weight MAX_WEIGHT = 40.0;
 
     Cat();
-    Cat(std::string      newName,
+    Cat(const std::string&      newName,
         Gender           newGender,
         Breed            newBreed,
         bool             newIsCatFixed,
         Weight::t_weight newWeight);
-    Cat(std::string      newName,
+    Cat(const std::string&      newName,
         Gender           newGender,
         Breed            newBreed,
         Weight::t_weight newWeight);
