@@ -15,6 +15,8 @@
 #include "config.h"
 #include "catDatabase.h"
 #include "Weight.h"
+#include "Node.h"
+#include "SinglyLinkedList.h"
 
 #include <iostream>
 
@@ -28,6 +30,25 @@ int main()
 {
     cout << "DEBUG - Starting " << PROGRAM_NAME << endl;
 
+    SinglyLinkedList linkedList;
 
+    Node* firstNode = new Node();
+    Node* secondNode = new Node();
+
+    linkedList.dump();
+    linkedList.push_front(secondNode);
+    linkedList.push_front(firstNode);
+
+    linkedList.dump();
+
+    Node* temp = linkedList.pop_front();
+
+    if(temp == firstNode)
+        cout << "Pop worked" << endl;
+
+    linkedList.dump();
+
+    delete firstNode;
+    delete secondNode;
     cout << "DEBUG - Done with " << PROGRAM_NAME << endl;
 }

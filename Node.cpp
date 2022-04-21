@@ -24,13 +24,13 @@ bool Node::operator>(const Node &rightSide) {
 
 //@todo: finish Node::validate()
 bool Node::validate() const noexcept {
-    return false;
+    return true;
 }
 
 void Node::dump() const {
     PRINT_HEADING_FOR_DUMP;
-    FORMAT_LINE_FOR_DUMP( "Node", "this" ) << this;
-    FORMAT_LINE_FOR_DUMP( "Node", "next" ) << next;
+    FORMAT_LINE_FOR_DUMP( "Node", "this" ) << this << std::endl;
+    FORMAT_LINE_FOR_DUMP( "Node", "next" ) << next << std::endl;
 
 }
 

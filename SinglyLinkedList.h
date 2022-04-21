@@ -15,6 +15,7 @@
 #include "Node.h"
 
 class SinglyLinkedList : public List {
+public:
     SinglyLinkedList();
     void push_front(Node *newNode);
     Node * pop_front() noexcept override;
