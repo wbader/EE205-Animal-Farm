@@ -28,7 +28,7 @@ int main()
     cout << "DEBUG - Starting " << PROGRAM_NAME << endl;
 
     Cat* tempCat = new Cat();
-    if(strcmp(tempCat->getName(), "" ) == 0)
+    if(tempCat->getName().empty())
         cout << "Default name set correctly" << endl;
     else
         cout << "FAILURE! - Default name set incorrectly [" << tempCat->getName() << "]" << endl;
@@ -40,11 +40,11 @@ int main()
         cout << "Default breed set correctly" << endl;
     else
         cout << "FAILURE! - Default breed set incorrectly" << endl;
-    if(tempCat->isFixed() == false)
+    if(!tempCat->isFixed())
         cout << "Default fix set correctly" << endl;
     else
         cout << "FAILURE! - Default fix set incorrectly" << endl;
-    if(tempCat->getWeight().validate())
+    if(!tempCat->getWeight().validate())
         cout << "Default weight set correctly" << endl;
     else
         cout << "FAILURE! - Default weight set incorrectly" << endl;
@@ -55,15 +55,18 @@ int main()
 
     cout << endl;
 
-    tempCat->setName(nullptr);
-    tempCat->setName("");
+    try {
+        tempCat->setName("");
+    } catch (std::exception const& e) {
+        cerr << e.what() << endl;
+    }
     tempCat->setName("a");
-    if(strcmp(tempCat->getName(), "a") == 0)
+    if(tempCat->getName() == "a")
         cout << "Name set to 1 char correctly" << endl;
     else
         cout << "FAILURE! - Name set to 1 char incorrectly" << endl;
     tempCat->setName("1234567890123456789012345678901234567890123456789");
-    if(strcmp(tempCat->getName(), "1234567890123456789012345678901234567890123456789") == 0)
+    if(tempCat->getName() == "1234567890123456789012345678901234567890123456789")
         cout << "Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars correctly" << endl;
     else
         cout << "FAILURE! - Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars incorrectly" << endl;

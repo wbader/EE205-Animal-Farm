@@ -12,14 +12,14 @@
 #include "validateData.h"
 #include "config.h"
 
-#include <cstring>
+#include <string>
 #include <iostream>
 #include <iomanip>
 #include <cassert>
 
 using namespace std;
 
-Cat::Cat(const char *newName,
+Cat::Cat(string newName,
          Gender newGender,
          Breed newBreed,
          bool newIsCatFixed,
@@ -32,7 +32,7 @@ Cat::Cat(const char *newName,
     }
 }
 
-Cat::Cat(const char *newName,
+Cat::Cat(string newName,
          Gender newGender,
          Breed newBreed,
          Weight::t_weight newWeight) {
@@ -49,7 +49,7 @@ Cat::Cat(const char *newName,
 }
 
 Cat::Cat() {
-    strcpy(name, "");
+    name = "";
     gender = Gender::UNKNOWN_GENDER;
     breed = Breed::UNKNOWN_BREED;
     isCatFixed = false;
@@ -59,7 +59,7 @@ Cat::Cat() {
 
 Cat::~Cat() {
     //cout << "Cat [" << name << "] deconstructing" << endl;
-    memset(name, 0, sizeof(name));
+    name.clear();
     gender = Gender::UNKNOWN_GENDER;
     breed = Breed::UNKNOWN_BREED;
     isCatFixed = false;
@@ -69,40 +69,34 @@ Cat::~Cat() {
 //
 bool Cat::validate() const {
 
-    if (name == nullptr)
+    if (name.empty())
     {
-        cerr << PROGRAM_NAME << " validate() failed due to name = nullptr" << endl;
-        return false;
-    }
-
-    if (strlen(name) == 0 || strlen(name) > MAX_CAT_NAME_LENGTH)
-    {
-        cerr << PROGRAM_NAME << " validate() failed due to invalid cat name length" << endl;
+        cerr << PROGRAM_NAME << " Cat::validate() failed due to name = nullptr" << endl;
         return false;
     }
 
     if (!weight.validate())
     {
-        cerr << PROGRAM_NAME << "cat validate() failed due to invalid weight" << endl;
+        cerr << PROGRAM_NAME << " Cat::validate() failed due to invalid weight" << endl;
         return false;
     }
 
     if (gender == Gender::UNKNOWN_GENDER)
     {
-        cerr << PROGRAM_NAME << " validate() failed due to invalid gender" << endl;
+        cerr << PROGRAM_NAME << " Cat::validate() failed due to invalid gender" << endl;
         return false;
     }
 
     if (breed == Breed::UNKNOWN_BREED)
     {
-        cerr << PROGRAM_NAME << " validate() failed due to invalid breed" << endl;
+        cerr << PROGRAM_NAME << " Cat::validate() failed due to invalid breed" << endl;
         return false;
     }
 
     return true;
 }
 
-const char* Cat::getName() const {
+std::string Cat::getName() const {
     return name;
 }
 
@@ -141,18 +135,13 @@ bool Cat::print() const noexcept {
     return true;
 }
 
-void Cat::setName(const char *name) {
-    if(name == nullptr)
+void Cat::setName(const string &newName) {
+    if(newName.empty())
     {
-        cout << "Cat::setName() - name can't be nullptr" << endl;
+        throw invalid_argument(PROGRAM_NAME " Cat::setName(string): string can't be empty");
         return;
     }
-    if(strlen(name) < 1 || strlen(name) > MAX_CAT_NAME_LENGTH)
-    {
-        cout << "Cat::setName() - invalid length, [" << strlen(name) << "] is not between 1 and " << MAX_CAT_NAME_LENGTH <<endl;
-        return;
-    }
-    strcpy(Cat::name, name);
+    name = newName;
 }
 
 void Cat::fixCat() {
@@ -161,7 +150,11 @@ void Cat::fixCat() {
 }
 
 void Cat::setWeight(float newWeight) {
-    weight.setWeight(newWeight);
+    try {
+        weight.setWeight(newWeight);
+    } catch (std::exception const& e) {
+        throw std::invalid_argument(e.what());
+    }
 }
 
 void Cat::setGender(Gender newGender) {

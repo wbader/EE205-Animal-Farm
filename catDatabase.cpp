@@ -105,7 +105,7 @@ Cat* findCatByName(const char* name)
     Cat* temp = catDatabaseHeadPointer;
     while (temp != nullptr)
     {
-        if(strcmp(temp->getName(), name) == 0)
+        if(temp->getName() == name)
             return temp;
         temp = temp->next;
     }
@@ -123,7 +123,7 @@ bool deleteCat(const char* name)
     Cat* prev = catDatabaseHeadPointer;
     while(temp != nullptr)
     {
-        if(strcmp(temp->getName(), name) == 0)
+        if(temp->getName() == name)
         {
             Cat* next = temp->next;
             if(temp == catDatabaseHeadPointer)

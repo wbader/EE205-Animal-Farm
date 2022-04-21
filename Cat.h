@@ -14,19 +14,21 @@
 #include "config.h"
 #include "Weight.h"
 
+#include <string>
+
 class Cat {
 public:
-    Cat* next;
+    Cat* next = nullptr;
 
     constexpr static const Weight::t_weight MAX_WEIGHT = 40.0;
 
     Cat();
-    Cat(const char*      newName,
+    Cat(std::string      newName,
         Gender           newGender,
         Breed            newBreed,
         bool             newIsCatFixed,
         Weight::t_weight newWeight);
-    Cat(const char*      newName,
+    Cat(std::string      newName,
         Gender           newGender,
         Breed            newBreed,
         Weight::t_weight newWeight);
@@ -37,22 +39,21 @@ public:
     bool validate() const;
 
     //Getters
-    const char* getName() const;
+    std::string getName() const;
     Gender      getGender() const;
     Breed       getBreed() const;
     bool        isFixed() const;
     Weight      getWeight() const;
 
     //Setters
-    void setName(const char *name);
+    void setName(const std::string &newName);
     void fixCat();
     void setWeight(Weight::t_weight newWeight);
-
     void setGender(Gender newGender);
     void setBreed(Breed newBreed);
 
 private:
-    char        name[MAX_CAT_NAME_LENGTH];
+    std::string name;
     enum Gender gender;
     enum Breed  breed;
     bool        isCatFixed;
