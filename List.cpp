@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "List.h"
+#include "config.h"
 
 #include <cassert>
 
@@ -56,4 +57,25 @@ bool List::isIn(Node *aNode) const {
     }
 
     return isFound;
+}
+
+bool List::isSorted() const noexcept {
+    assert(validate());
+
+    return false;
+}
+
+Node *List::get_first() const noexcept {
+    assert(validate());
+
+    return head;
+}
+
+Node *List::get_next(const Node *currentNode) {
+    assert(validate());
+
+    if(currentNode == nullptr)
+        throw std::invalid_argument(PROGRAM_NAME " List::get_next(*Node) - passed NULL");
+
+    return currentNode->next;
 }
