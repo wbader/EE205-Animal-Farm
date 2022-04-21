@@ -13,6 +13,7 @@
 
 #include <stdexcept>
 #include <ostream>
+#include <iomanip>
 
 #define PROGRAM_NAME "Animal Farm 2"
 

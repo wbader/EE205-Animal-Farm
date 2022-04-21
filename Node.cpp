@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Node.h"
 #include "config.h"
+#include <iostream>
 
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
     return (&node1 > &node2);
@@ -25,6 +26,9 @@ bool Node::validate() const noexcept {
 }
 
 void Node::dump() const {
+    PRINT_HEADING_FOR_DUMP;
+    FORMAT_LINE_FOR_DUMP( "Node", "this" ) << this;
+    FORMAT_LINE_FOR_DUMP( "Node", "next" ) << next;
 
 }
 
