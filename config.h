@@ -11,6 +11,9 @@
 
 #pragma once
 
+#include <stdexcept>
+#include <ostream>
+
 #define MAX_CAT_NAME_LENGTH (50)
 //#define MAX_CATS (1024)
 #define PROGRAM_NAME "Animal Farm 2"
@@ -18,8 +21,69 @@
 
 
 // enums
-enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
-enum Breed  {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
+//enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
+/// A gender... for educational use only. This is not intended to be
+/// inclusive of all possible genders
+enum class Gender {
+    UNKNOWN_GENDER=0
+    ,MALE
+    ,FEMALE
+};
+/// Output Gender as a formatted string
+///
+/// @param lhs_stream The output stream to write to (usually `cout`). `
+/// `lhs` stands for Left Hand Side and means the left side
+/// of the `<<` operator.
+/// @param rhs_Gender The Gender to output.
+/// `rhs` stands for Right Hand Side and means the right
+/// side of the `<<` operator.
+/// @return `Unknown gender`, `Female` or `Male`.
+inline std::ostream& operator<<( std::ostream& lhs_stream, const Gender& rhs_Gender ){
+    switch( rhs_Gender ) {
+        case Gender::UNKNOWN_GENDER:
+            lhs_stream << "Unknown gender";
+            break;
+        case Gender::MALE:
+            lhs_stream << "Male";
+            break;
+        case Gender::FEMALE:
+            lhs_stream << "Female";
+            break;
+        default:
+            /// @throw out_of_range If the enum is not mapped to a string.
+            throw std::out_of_range( PROGRAM_NAME ": Gender not mapped to a string" );
+    }
+    return lhs_stream;
+}
+
+enum class Breed  {UNKNOWN_BREED = 0, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
+
+inline std::ostream& operator<<( std::ostream& lhs_stream, const Breed& rhs_Breed ){
+    switch( rhs_Breed ) {
+        case Breed::UNKNOWN_BREED:
+            lhs_stream << "Unknown breed";
+            break;
+        case Breed::MAINE_COON:
+            lhs_stream << "Maine Coon";
+            break;
+        case Breed::MANX:
+            lhs_stream << "Manx";
+            break;
+        case Breed::SHORTHAIR:
+            lhs_stream << "Shorthair";
+            break;
+        case Breed::PERSIAN:
+            lhs_stream << "Persian";
+            break;
+        case Breed::SPHYNX:
+            lhs_stream << "Sphynx";
+            break;
+        default:
+            /// @throw out_of_range If the enum is not mapped to a string.
+            throw std::out_of_range( PROGRAM_NAME ": Breed not mapped to a string" );
+    }
+    return lhs_stream;
+}
 //enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
 
 /// Format the heading for dumping members of a class to the console
