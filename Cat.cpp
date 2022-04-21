@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
 #include "validateData.h"
+#include "config.h"
 
 #include <cstring>
 #include <iostream>
@@ -49,8 +50,8 @@ Cat::Cat(const char *newName,
 
 Cat::Cat() {
     strcpy(name, "");
-    gender = UNKNOWN_GENDER;
-    breed = UNKNOWN_BREED;
+    gender = Gender::UNKNOWN_GENDER;
+    breed = Breed::UNKNOWN_BREED;
     isCatFixed = false;
     weight = Weight(Weight::POUND, MAX_WEIGHT);
     next = nullptr;
@@ -59,8 +60,8 @@ Cat::Cat() {
 Cat::~Cat() {
     //cout << "Cat [" << name << "] deconstructing" << endl;
     memset(name, 0, sizeof(name));
-    gender = UNKNOWN_GENDER;
-    breed = UNKNOWN_BREED;
+    gender = Gender::UNKNOWN_GENDER;
+    breed = Breed::UNKNOWN_BREED;
     isCatFixed = false;
     next = nullptr;
 }
@@ -86,13 +87,13 @@ bool Cat::validate() const {
         return false;
     }
 
-    if (gender == UNKNOWN_GENDER)
+    if (gender == Gender::UNKNOWN_GENDER)
     {
         cerr << PROGRAM_NAME << " validate() failed due to invalid gender" << endl;
         return false;
     }
 
-    if (breed == UNKNOWN_BREED)
+    if (breed == Breed::UNKNOWN_BREED)
     {
         cerr << PROGRAM_NAME << " validate() failed due to invalid breed" << endl;
         return false;
@@ -133,8 +134,8 @@ bool Cat::print() const noexcept {
     cout << left;
     cout << boolalpha;
     FORMAT_LINE("Cat", "name") << getName() << endl;
-    FORMAT_LINE("Cat", "gender") << genderName(getGender()) << endl;
-    FORMAT_LINE("Cat", "breed") << breedName(getBreed()) << endl;
+    FORMAT_LINE("Cat", "gender") << getGender() << endl;
+    FORMAT_LINE("Cat", "breed") << getBreed() << endl;
     FORMAT_LINE("Cat", "isFixed") << isFixed() << endl;
     FORMAT_LINE("Cat", "weight") << getWeight() << endl;
     return true;
@@ -164,7 +165,7 @@ void Cat::setWeight(float newWeight) {
 }
 
 void Cat::setGender(Gender newGender) {
-    if (Cat::getGender() != UNKNOWN_GENDER)
+    if (Cat::getGender() != Gender::UNKNOWN_GENDER)
     {
         cerr << "Cat::setGender() - can't change from a known gender" << endl;
         return;
@@ -174,7 +175,7 @@ void Cat::setGender(Gender newGender) {
 
 void Cat::setBreed(Breed newBreed)
 {
-    if(Cat::getBreed() != UNKNOWN_BREED)
+    if(Cat::getBreed() != Breed::UNKNOWN_BREED)
     {
         cerr << "Cat::setBreed() - can't change from a known breed" << endl;
         return;

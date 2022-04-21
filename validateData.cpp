@@ -68,7 +68,7 @@ std::string colorName(const enum Color color)
     return "ERROR!";
 }
 */
-
+/* No longer needed
 std::string breedName(const enum Breed breed)
 {
     // UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX
@@ -112,3 +112,4 @@ std::string genderName(const enum Gender gender)
     std::cerr << PROGRAM_NAME << " passed through switch in genderName()" << std::endl;
     return "ERROR!";
 }
+*/

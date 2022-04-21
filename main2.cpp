@@ -32,11 +32,11 @@ int main()
         cout << "Default name set correctly" << endl;
     else
         cout << "FAILURE! - Default name set incorrectly [" << tempCat->getName() << "]" << endl;
-    if(tempCat->getGender() == UNKNOWN_GENDER)
+    if(tempCat->getGender() == Gender::UNKNOWN_GENDER)
         cout << "Default gender set correctly" << endl;
     else
         cout << "FAILURE! - Default gender set incorrectly" << endl;
-    if(tempCat->getBreed() == UNKNOWN_BREED)
+    if(tempCat->getBreed() == Breed::UNKNOWN_BREED)
         cout << "Default breed set correctly" << endl;
     else
         cout << "FAILURE! - Default breed set incorrectly" << endl;
@@ -68,18 +68,18 @@ int main()
     else
         cout << "FAILURE! - Name set to [" << (MAX_CAT_NAME_LENGTH - 1)  << "] chars incorrectly" << endl;
     tempCat->setName("123456789012345678901234567890123456789012345678901");
-    tempCat->setGender(FEMALE);
-    if(tempCat->getGender() == FEMALE)
+    tempCat->setGender(Gender::FEMALE);
+    if(tempCat->getGender() == Gender::FEMALE)
         cout << "Gender set correctly" << endl;
     else
         cout << "FAILURE! - Gender set incorrectly" << endl;
-    tempCat->setGender(MALE);
-    tempCat->setBreed(MAINE_COON);
-    if(tempCat->getBreed() == MAINE_COON)
+    tempCat->setGender(Gender::MALE);
+    tempCat->setBreed(Breed::MAINE_COON);
+    if(tempCat->getBreed() == Breed::MAINE_COON)
         cout << "Breed set correctly" << endl;
     else
         cout << "FAILURE! - Breed set incorrectly" << endl;
-    tempCat->setBreed(SHORTHAIR);
+    tempCat->setBreed(Breed::SHORTHAIR);
     if(tempCat->isFixed() == false)
         cout << "isFixed set correctly in default" << endl;
     else
@@ -95,12 +95,12 @@ int main()
     if(tempCat->validate())
         cout << "We've created a valid cat!" << endl;
 
-    Cat *tempCat1 = new Cat("Loki", MALE, PERSIAN, 1.0);
+    Cat *tempCat1 = new Cat("Loki", Gender::MALE, Breed::PERSIAN, 1.0);
     if(tempCat1->validate())
         cout << "We've created [" << tempCat1->getName() << "], who is a valid cat!" << endl;
-    Cat *tempCat2 = new Cat("Milo", UNKNOWN_GENDER, MANX, 1.1);
-    Cat *tempCat3 = new Cat("Bella", FEMALE, UNKNOWN_BREED, 1.2);
-    Cat *tempCat4 = new Cat("Kali", FEMALE, SHORTHAIR, 0.0);
+    Cat *tempCat2 = new Cat("Milo", Gender::UNKNOWN_GENDER, Breed::MANX, 1.1);
+    Cat *tempCat3 = new Cat("Bella", Gender::FEMALE, Breed::UNKNOWN_BREED, 1.2);
+    Cat *tempCat4 = new Cat("Kali", Gender::FEMALE, Breed::SHORTHAIR, 0.0);
 
     delete tempCat;
     delete tempCat1;
@@ -108,22 +108,22 @@ int main()
     delete tempCat3;
     delete tempCat4;
 
-    Cat *tempCat5 = new Cat("Loki", MALE, PERSIAN, 1.0);
+    Cat *tempCat5 = new Cat("Loki", Gender::MALE, Breed::PERSIAN, 1.0);
     if(tempCat5->validate())
         addCat(tempCat5);
-    Cat *tempCat6 = new Cat("Milo", MALE, MANX, 1.1);
+    Cat *tempCat6 = new Cat("Milo", Gender::MALE, Breed::MANX, 1.1);
     if(tempCat6->validate())
         addCat(tempCat6);
-    Cat *tempCat7 = new Cat("Bella", FEMALE, MAINE_COON, 1.2);
+    Cat *tempCat7 = new Cat("Bella", Gender::FEMALE, Breed::MAINE_COON, 1.2);
     if(tempCat7->validate())
         addCat(tempCat7);
-    Cat *tempCat8 = new Cat("Kali", FEMALE, SHORTHAIR, 1.3);
+    Cat *tempCat8 = new Cat("Kali", Gender::FEMALE, Breed::SHORTHAIR, 1.3);
     if(tempCat8->validate())
         addCat(tempCat8);
-    Cat *tempCat9 = new Cat("Trin", FEMALE, MANX, 1.4);
+    Cat *tempCat9 = new Cat("Trin", Gender::FEMALE, Breed::MANX, 1.4);
     if(tempCat9->validate())
         addCat(tempCat9);
-    Cat *tempCat10 = new Cat("Chili", MALE, SHORTHAIR, 1.5);
+    Cat *tempCat10 = new Cat("Chili", Gender::MALE, Breed::SHORTHAIR, 1.5);
     if(tempCat10->validate())
         addCat(tempCat10);
 
