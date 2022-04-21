@@ -12,6 +12,7 @@
 #include "config.h"
 #include <iostream>
 
+// @todo: ask about operator> and compareByAddress() in class
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
     return (&node1 > &node2);
 }
@@ -21,6 +22,7 @@ bool Node::operator>(const Node &rightSide) {
     return false;
 }
 
+//@todo: finish Node::validate()
 bool Node::validate() const noexcept {
     return false;
 }
@@ -30,5 +32,9 @@ void Node::dump() const {
     FORMAT_LINE_FOR_DUMP( "Node", "this" ) << this;
     FORMAT_LINE_FOR_DUMP( "Node", "next" ) << next;
 
+}
+
+Node::~Node() {
+    next = nullptr;
 }
 

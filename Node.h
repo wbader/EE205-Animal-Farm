@@ -16,7 +16,12 @@ public:
     virtual bool validate() const noexcept;
     virtual bool operator>(const Node &rightSide);
 
+    virtual ~Node();
+
 protected:
     static bool compareByAddress(const Node *node1, const Node *node2);
     Node* next = nullptr;
+
+    friend class List;
+    friend class SinglyLinkedList;
 };
