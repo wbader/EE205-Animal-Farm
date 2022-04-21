@@ -19,41 +19,28 @@
 
 #include <iostream>
 
-#include "catDatabase.h"
 #include "config.h"
-#include "validateData.h"
 
 using namespace std;
 
-Cat* catDatabaseHeadPointer = nullptr;
-
-int main()
-{
-
-    cout << "Starting " << PROGRAM_NAME << endl;
-    Cat *tempCat0 = new Cat("Loki", MALE, PERSIAN, 1.0);
-    if(tempCat0->validate())
-        addCat(tempCat0);
-    Cat *tempCat1 = new Cat("Milo", MALE, MANX, 1.1);
-    if(tempCat1->validate())
-        addCat(tempCat1);
-    Cat *tempCat2 = new Cat("Bella", FEMALE, MAINE_COON, 1.2);
-    if(tempCat2->validate())
-        addCat(tempCat2);
-    Cat *tempCat3 = new Cat("Kali", FEMALE, SHORTHAIR, 1.3);
-    if(tempCat3->validate())
-        addCat(tempCat3);
-    Cat *tempCat4 = new Cat("Trin", FEMALE, MANX, 1.4);
-    if(tempCat4->validate())
-        addCat(tempCat4);
-    Cat *tempCat5 = new Cat("Chili", MALE, SHORTHAIR, 1.5);
-    if(tempCat5->validate())
-        addCat(tempCat5);
-
-    printAllCats();
-    deleteAllCats();
-    printAllCats();
-
-    cout << "Done with " << PROGRAM_NAME << endl;
-
+int main() {
+    cout << "Starting " << PROGRAM_NAME << endl ;
+    SinglyLinkedList catDB ;
+    catDB.push_front( new Cat( "Loki", Color::CREAM, true, Gender::MALE, 1.0 ) ) ;
+    catDB.push_front( new Cat( "Milo", Color::BLACK, true, Gender::MALE, 1.1 ) ) ;
+    catDB.push_front( new Cat( "Bella", Color::BROWN, true, Gender::FEMALE, 1.2 ) ) ;
+    catDB.push_front( new Cat( "Kali", Color::CALICO, true, Gender::FEMALE, 1.3 ) ) ;
+    catDB.push_front( new Cat( "Trin", Color::WHITE, true, Gender::FEMALE, 1.4 ) ) ;
+    catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
+                                                   Gender::MALE, 1.5 ) );
+    for( Animal* pAnimal = (Animal*)catDB.get_first() ; pAnimal != nullptr ; pAnimal =
+                                                                                     (Animal*)List::get_next( (Node*)pAnimal ) ) {
+        cout << pAnimal->speak() << endl;
+    }
+    catDB.validate() ;
+    catDB.dump() ;
+    catDB.deleteAllNodes() ;
+    catDB.dump() ;
+    cout << "Done with " << PROGRAM_NAME ;
+    return( EXIT_SUCCESS ) ;
 }
