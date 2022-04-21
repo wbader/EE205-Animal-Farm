@@ -10,20 +10,43 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Node.h"
 #include "config.h"
-#include <iostream>
 
-// @todo: ask about operator> and compareByAddress() in class
+#include <iostream>
+#include <cassert>
+
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
-    return (&node1 > &node2);
+    assert(node1->validate());
+    assert(node2->validate());
+
+    return (node1 > node2);
 }
 
 bool Node::operator>(const Node &rightSide) {
-    //return compareByAddress(this, rightSide);
-    return false;
+    assert(validate());
+    assert(rightSide.validate());
+
+    return compareByAddress(this, &rightSide);
 }
 
-//@todo: finish Node::validate()
 bool Node::validate() const noexcept {
+    /// clang tidy doesn't like the following line, however I'm not confident I can write well defined c++ code
+    if(this == nullptr)
+    {
+        std::cerr << PROGRAM_NAME << " Node::validate(): Node never initialized" << std::endl;
+        return false;
+    }
+
+    Node* testNode = this->next;
+    while (testNode != nullptr)
+    {
+        if(testNode == this)
+        {
+            std::cerr << PROGRAM_NAME << " Node::validate(): infinite loop found, someLaterNode->next == this" << std::endl;
+            return false;
+        }
+        testNode = testNode->next;
+    }
+
     return true;
 }
 
@@ -31,7 +54,6 @@ void Node::dump() const {
     PRINT_HEADING_FOR_DUMP;
     FORMAT_LINE_FOR_DUMP( "Node", "this" ) << this << std::endl;
     FORMAT_LINE_FOR_DUMP( "Node", "next" ) << next << std::endl;
-
 }
 
 Node::~Node() {

@@ -13,7 +13,6 @@
 
 #include "Cat.h"
 #include "config.h"
-#include "catDatabase.h"
 #include "Weight.h"
 #include "Node.h"
 #include "SinglyLinkedList.h"
@@ -45,6 +44,11 @@ int main()
 
     if(temp == firstNode)
         cout << "Pop worked" << endl;
+
+    if (firstNode > secondNode)
+        cout << firstNode << " > " << secondNode << endl;
+    else
+        cout << firstNode << " < " << secondNode << endl;
 
     linkedList.dump();
 
