@@ -30,7 +30,7 @@ public:
     Animal(const Gender newGender, const Weight::t_weight newWeight, const Weight::t_weight newMaxWeight,
            const std::string &newClassification, const std::string &newSpecies);
 
-    const std::string &getKingdom() const noexcept;
+    static const std::string &getKingdom() noexcept;
     const std::string &getClassification() const noexcept;
     const std::string &getSpecies() const noexcept;
     Gender getGender() const noexcept;

@@ -6,7 +6,7 @@
 /// @version 1.0
 ///
 /// @author Waylon Bader <wbader@hawaii.edu>
-/// @date   20_Apr_2022
+/// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Node.h"
 #include "config.h"

@@ -29,6 +29,7 @@ Animal::Animal(const Weight::t_weight newMaxWeight, const std::string &newClassi
     weight         = Weight(Weight::POUND, newMaxWeight);
     species        = newSpecies;
     classification = newClassification;
+    gender         = Gender::UNKNOWN_GENDER;
 
     /// minimum always fails validate()
     // assert(validate())
@@ -58,7 +59,7 @@ const std::string &Animal::getClassification() const noexcept {
     return classification;
 }
 
-const std::string &Animal::getKingdom() const noexcept{
+const std::string &Animal::getKingdom() noexcept{
     return KINGDOM_NAME;
 }
 
@@ -67,7 +68,7 @@ void Animal::dump() const noexcept {
     FORMAT_LINE_FOR_DUMP("Animal", "this") << this << std::endl;
     FORMAT_LINE_FOR_DUMP("Animal", "kingdom") << getKingdom() << std::endl;
     FORMAT_LINE_FOR_DUMP("Animal", "classification") << getClassification() << std::endl;
-    FORMAT_LINE_FOR_DUMP("Animal", "species") << getSpecies() << std::endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "species") << getSpecies() <<  std::endl;
     FORMAT_LINE_FOR_DUMP("Animal", "gender") << getGender() << std::endl;
     FORMAT_LINE_FOR_DUMP("Animal:", "weight") << weight << std::endl;
 }

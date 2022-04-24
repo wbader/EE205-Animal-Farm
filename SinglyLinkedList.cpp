@@ -104,7 +104,7 @@ void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
         throw std::logic_error(PROGRAM_NAME " SinglyLinkedList::insert_after(Node*, Node*): currentNode is not in the list");
 
     if(newNode == nullptr)
-        throw std::invalid_argument(PROGRAM_NAME " SinglyLinkedList::insert_after(Node*, Node*): newNode passed was nullptt");
+        throw std::invalid_argument(PROGRAM_NAME " SinglyLinkedList::insert_after(Node*, Node*): newNode passed was nullptr");
 
     if(!newNode->validate())
         throw std::domain_error(PROGRAM_NAME " SinglyLinkedList::insert_after(Node*, Node*): newNode wasn't a valid Node");

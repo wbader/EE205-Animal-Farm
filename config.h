@@ -6,7 +6,7 @@
 /// @version 1.0
 ///
 /// @author Waylon Bader <wbader@hawaii.edu>
-/// @date   10_Apr_2022
+/// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -129,4 +129,4 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Colo
  << std::boolalpha /* Print `true` or `false` for `bool`s */ \
  << std::setw(8) << (className) \
  << std::setw(20) << (member) \
- << std::setw(52) /* (data) */
+ //<< std::setw(52) /* (data) */

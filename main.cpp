@@ -3,18 +3,18 @@
 /// @brief   ee205_animal_farm  - EE 205 - Spr 2022
 ///
 /// @file    main.c
-/// @version 1.0 - Initial version
+/// @version 3.0 - AF 3
 ///
-/// This is Animal Farm 2, we're creating a database of cats using classes and a
-/// linked list implementation.  This program was modified from AF1, and will be adapted further
-/// to AF 3, 4, 5 or beyond!
+/// This is Animal Farm 3, we're creating a database of cats using inherited classes and a singly
+/// linked list implementation.  This program was modified from AF2, and will be adapted further
+/// to AF 4, 5 or beyond!
 ///
 /// Compile: $ make
 ///
 /// Usage:   $ ./animalfarm
 ///
 /// @author  Waylon Bader <wbader@hawaii.edu>
-/// @date    10_Apr_2022
+/// @date    24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>

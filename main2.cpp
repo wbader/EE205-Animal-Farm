@@ -6,12 +6,13 @@
 /// @version 1.0
 ///
 /// @author Waylon Bader <wbader@hawaii.edu>
-/// @date   10_Apr_2022
+/// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-/// This is just a test bed for the Cat class and the linked list, not production code
+/// This is just a test bed for the Node-Animal-Mammal-Cat class and the singly linked list, not production code
 
 #include "Cat.h"
+#include "Animal.h"
 #include "config.h"
 #include "Weight.h"
 #include "Node.h"
@@ -22,8 +23,6 @@
 #define DEBUG
 
 using namespace std;
-
-Cat* catDatabaseHeadPointer = nullptr;
 
 int main()
 {
