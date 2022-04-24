@@ -82,7 +82,7 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Breed& rhs_Bree
 }
 //enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
 
-enum class Color { UNKNOWN_COLOR = 0, CREAM, BLACK, BROWN, CALICO, WHITE) };
+enum class Color { UNKNOWN_COLOR = 0, CREAM, BLACK, BROWN, CALICO, WHITE };
 
 inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Color ) {
     switch (rhs_Color) {
