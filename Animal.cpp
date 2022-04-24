@@ -101,6 +101,8 @@ bool Animal::validate() const noexcept {
         std::cerr << PROGRAM_NAME << " Animal::validate() failed because Gender not set" << std::endl;
         return false;
     }
+
+    return true;
 }
 
 void Animal::setGender(const Gender newGender) {
