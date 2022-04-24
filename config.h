@@ -82,7 +82,7 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Breed& rhs_Bree
 }
 //enum Color  {UNKNOWN_COLOR, BLACK, WHITE, GREY, PINK, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
 
-enum class Color { UNKNOWN_COLOR = 0, CREAM, BLACK, BROWN, CALICO, WHITE };
+enum class Color { UNKNOWN_COLOR = 0, CREAM, BLACK, BROWN, CALICO, WHITE, GINGER };
 
 inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Color ) {
     switch (rhs_Color) {
@@ -103,6 +103,9 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Colo
             break;
         case Color::WHITE:
             lhs_stream << "White";
+            break;
+        case Color::GINGER:
+            lhs_stream << "Ginger";
             break;
         default:
             /// @throw out_of_range If the enum is not mapped to a string.
