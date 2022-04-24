@@ -20,6 +20,9 @@
 #include <iostream>
 
 #include "config.h"
+#include "Animal.h"
+#include "Cat.h"
+#include "SinglyLinkedList.h"
 
 using namespace std;
 
