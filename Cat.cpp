@@ -71,7 +71,8 @@ Cat::Cat(const string &newName) : Mammal (MAX_WEIGHT, SPECIES_NAME) {
 }
 
 Cat::Cat(const string &newName, const Color newColor, const bool newIsFixed, const Gender newGender,
-         const Weight::t_weight newWeight) : Mammal(newColor, newGender, newWeight, MAX_WEIGHT, SPECIES_NAME) {
+         const Weight::t_weight newWeight) : Mammal(newColor, newGender, newWeight, MAX_WEIGHT, SPECIES_NAME)  {
+
     setName(newName);
     isCatFixed = newIsFixed;
 
