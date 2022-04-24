@@ -43,7 +43,7 @@ bool SinglyLinkedList::validate() const noexcept {
 }
 
 void SinglyLinkedList::dump() const noexcept {
-    std::cout << "SinglyLinkedList:  head=[" << head << "]" << std::endl;
+    std::cout << "SinglyLinkedList:  head=[" << head << "] count=[" << count << "]" <<  std::endl;
     Node *testNode = head;
     while (testNode != nullptr)
     {
@@ -68,6 +68,8 @@ void SinglyLinkedList::push_front(Node *newNode) {
     head = newNode;
     newNode->next = oldHead;
 
+    count++;
+
     assert(validate());
 }
 
@@ -81,12 +83,17 @@ Node *SinglyLinkedList::pop_front() noexcept {
     head = returnNode->next;
     returnNode->next = nullptr;
 
+    count--;
+
     assert(validate());
 
     return returnNode;
 }
 
 void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
+    assert(currentNode->validate());
+    assert(newNode->validate());
+
     if(empty())
         throw std::logic_error(PROGRAM_NAME " SinglyLinkedList::insert_after(Node*, Node*): the list is empty, can't insert after");
 
@@ -104,4 +111,11 @@ void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
 
     if(isIn(newNode))
         throw std::logic_error(PROGRAM_NAME " SinglyLinkedList::insert_after(Node*, Node*): newNode was already in the list");
+
+
+    Node* tempNextNode = currentNode->next;
+    currentNode->next = newNode;
+    newNode->next = tempNextNode;
+
+    count++;
 }

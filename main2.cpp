@@ -34,16 +34,30 @@ int main()
     Node* firstNode = new Node();
     Node* secondNode = new Node();
 
+    firstNode->dump();
+    secondNode->dump();
+
     linkedList.dump();
+
+    for (int i = 0; i < 5; ++i) {
+        linkedList.push_front(new Node());
+    }
+
     linkedList.push_front(secondNode);
-    linkedList.push_front(firstNode);
+
+    for (int i = 0; i < 5; ++i) {
+        linkedList.push_front(new Node());
+    }
+
+    linkedList.insert_after(secondNode, firstNode);
 
     linkedList.dump();
 
-    Node* temp = linkedList.pop_front();
+    cout << endl;
 
-    if(temp == firstNode)
-        cout << "Pop worked" << endl;
+    linkedList.pop_front();
+
+    linkedList.dump();
 
     if (firstNode > secondNode)
         cout << firstNode << " > " << secondNode << endl;
@@ -51,6 +65,11 @@ int main()
         cout << firstNode << " < " << secondNode << endl;
 
     linkedList.dump();
+
+    linkedList.deleteAllNodes();
+    if(linkedList.empty())
+        cout << "Successfully deleted all nodes" << endl;
+
 
     delete firstNode;
     delete secondNode;
