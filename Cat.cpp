@@ -6,18 +6,79 @@
 /// @version 1.0
 ///
 /// @author Waylon Bader <wbader@hawaii.edu>
-/// @date   10_Apr_2022
+/// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
 #include "config.h"
 
 #include <string>
 #include <iostream>
-#include <iomanip>
 #include <cassert>
 
 using namespace std;
 
+const std::string Cat::SPECIES_NAME = "Felis Catus";
+
+std::string Cat::getName() const noexcept{
+    return name;
+}
+
+bool Cat::isFixed() const noexcept{
+    return isCatFixed;
+}
+
+void Cat::setName(const string &newName) {
+    if (newName.empty())
+        throw invalid_argument(PROGRAM_NAME " Cat::setName(string): string can't be empty");
+
+    name = newName;
+}
+
+bool Cat::validate() const noexcept {
+    if(!Animal::validate())
+    {
+        cerr << PROGRAM_NAME << " Cat::validate() failed due to Animal::validate()" << endl;
+        return false;
+    }
+
+    if (name.empty())
+    {
+        cerr << PROGRAM_NAME << " Cat::validate() failed due to name empty" << endl;
+        return false;
+    }
+
+    return true;
+}
+
+void Cat::fixCat() noexcept{
+    if(!(isFixed()))
+        isCatFixed = true;
+}
+
+std::string Cat::speak() const noexcept {
+    return "Meow";
+}
+
+void Cat::dump() const noexcept {
+    Mammal::dump();
+    FORMAT_LINE_FOR_DUMP("Cat", "name") << name << std::endl;
+    FORMAT_LINE_FOR_DUMP("Cat", "isFixed") << isFixed() << std::endl;
+}
+
+Cat::Cat(const string &newName) : Mammal (MAX_WEIGHT, SPECIES_NAME) {
+    setName(newName);
+    isCatFixed = false;
+}
+
+Cat::Cat(const string &newName, const Color newColor, const bool newIsFixed, const Gender newGender,
+         const Weight::t_weight newWeight) : Mammal(newColor, newGender, newWeight, MAX_WEIGHT, SPECIES_NAME) {
+    setName(newName);
+    isCatFixed = newIsFixed;
+
+    assert(validate());
+}
+
+/*
 Cat::Cat(const string& newName,
          Gender newGender,
          Breed newBreed,
@@ -93,9 +154,7 @@ bool Cat::validate() const {
     return true;
 }
 
-std::string Cat::getName() const {
-    return name;
-}
+
 
 Gender Cat::getGender() const {
     return gender;
@@ -105,9 +164,7 @@ Breed Cat::getBreed() const {
     return breed;
 }
 
-bool Cat::isFixed() const {
-    return isCatFixed;
-}
+
 
 Weight Cat::getWeight() const {
     return weight;
@@ -132,17 +189,7 @@ bool Cat::print() const noexcept {
     return true;
 }
 
-void Cat::setName(const string &newName) {
-    if (newName.empty())
-        throw invalid_argument(PROGRAM_NAME " Cat::setName(string): string can't be empty");
 
-    name = newName;
-}
-
-void Cat::fixCat() {
-    if(!(isFixed()))
-        isCatFixed = true;
-}
 
 void Cat::setWeight(float newWeight) {
     try {
@@ -166,3 +213,5 @@ void Cat::setBreed(Breed newBreed)
 
     breed = newBreed;
 }
+
+*/
