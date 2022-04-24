@@ -15,6 +15,8 @@
 #include <iostream>
 #include <cassert>
 
+const std::string Animal::KINGDOM_NAME = "Animalia";
+
 Animal::Animal(const Weight::t_weight newMaxWeight, const std::string &newClassification,
                const std::string &newSpecies) {
     if(newClassification.empty())
@@ -22,6 +24,7 @@ Animal::Animal(const Weight::t_weight newMaxWeight, const std::string &newClassi
 
     if(newSpecies.empty())
         throw std::invalid_argument(PROGRAM_NAME " Animal::Animal(t_weight, string, string) newSpecies was empty");
+
 
     weight         = Weight(Weight::POUND, newMaxWeight);
     species        = newSpecies;
