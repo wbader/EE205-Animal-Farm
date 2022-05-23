@@ -10,7 +10,7 @@ this project as the code evolves over a series of requirements.
 #### Links
 The project's home page (hosted by GitHub) is [here](https://github.com/wbader/ee205_Animal_Farm)
 
-The documentation for the source code (hosted by UH) is [here](http://www2.hawaii.edu/~wbader/ee205/ee205_animal_farm/index.html)
+The documentation for the source code (hosted by UH) is [here](http://www2.hawaii.edu/~wbader/ee205/ee205_animal_farm/index.html) - We just started working with doxygen, the code hasn't been formated yet for doxygen to work.
 
 #### Roadmap
 | Animal Farm Version | Description                                                                                                                                                                                                                                                                                                                                                                                    |
